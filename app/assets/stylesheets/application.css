@@ -14,3 +14,98 @@
  *= require_tree .
  *= require_self
  */
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --font-primary: "montserrat", serif;
+    --font-secundary: "Roboto", serif;
+    --font-action: "Roboto", serif;
+}
+
+.navbar{
+    background-color: #171918;
+    margin-bottom: 3rem;
+}
+
+.img-wrapper{
+    height: 80px;
+    width: 120px;
+    margin-left: 100px;
+}
+
+.navbar img{
+    height: 60px;
+    width: 120px;
+    margin-left: 2px;
+}
+
+header{
+    align-items: center;
+    align-content: center;
+    height: 90vh;
+    width: 100%;
+    background-color: #C0C0C0;
+}
+
+.card{
+    width: 50%;
+    left: 0px;
+    top: 120px;
+}
+
+.card-info {
+    text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, .4);
+    background-color: #171918;
+    color: white;
+}
+
+.card h3{
+    color: yellowgreen;
+}
+
+.card2{
+    width: 50%;
+    left: 0px;
+    top: 120px;
+}
+.card3{
+    width: 50%;
+    left: 0px;
+    top: 120px;
+}
+
+.card4{
+    width: 50%;
+    left: 0px;
+    top: 120px;
+}
+
+.card-info2 {
+    text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, .4);
+    background-color: #171918;
+    color: white;
+}
+
+.card2 h3{
+    color: red;
+}
+
+footer {
+  bottom:0; 
+  font-family: var(--font-primary);
+  color: black;
+  background-color: yellowgreen;
+}
+.container {
+  height: 100vh;
+}
