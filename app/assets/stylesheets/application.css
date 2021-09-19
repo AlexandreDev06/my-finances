@@ -109,3 +109,6 @@ footer {
 .container {
   height: 100vh;
 }
+.bg-default {
+    background-color: #171918;
+}
