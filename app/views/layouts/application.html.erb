@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link
         rel="icon"
@@ -25,11 +26,11 @@
   </head>
 
   <body>
-  <%= render "menu" %>
-  <div class="home/container">
+  <%= render "home/menu" %>
+  <div class="container">
     <%= yield %>
   </div>
   <%= render "home/footer" %>
   </body>
 </html>
->>>>>>> 61a082555e3572fcfd7e2a7db02ba634dcea89d2
+
