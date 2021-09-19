@@ -4,13 +4,13 @@
       <h2 class="mt-2 mb-1">Saldo Positivo</h2>
       <h3>R$: <label class="text-success">3091039</label></h3>
       <label class="mt-1 mb-1">Saldo positivo: Todo o lucro.</label> <br>
-      <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
+      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
     </div>
   </div>
   <div class="col text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Pendências</h2>
-      <h3>R$: <label class="text-danger">3091039</label></h3>
+      <h3>R$:</h3>
       <label class="mt-1 mb-1">Saldo negativo: Todos os gastos.</label>
       <br>
       <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
@@ -38,32 +38,24 @@
   </div>
 </div>
 <br>
+
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Dia de pagamento</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td>Despesas</td>
+        <td><%= expense.name %></td>
+        <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
