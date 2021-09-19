@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,3 +35,39 @@
   <%= render "home/footer" %>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Finances</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="img/favicon-32x32.png"
+    >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="img/favicon-16x16.png"
+    >
+    <link rel="manifest" href="/site.webmanifest">
+  </head>
+
+  <body>
+  <%= render "menu" %>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <%= render "footer" %>
+  </body>
+</html>
+>>>>>>> 61a082555e3572fcfd7e2a7db02ba634dcea89d2
