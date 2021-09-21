@@ -5,7 +5,6 @@
       <th scope="col">Tipo</th>
       <th scope="col">Nome</th>
       <th scope="col">Descrição</th>
-
       <th scope="col">Valor</th>
       <th scope="col">Dia de pagamento</th>
       <th scope="col"></th>
@@ -16,15 +15,20 @@
       <tr>
         <td>Despesas</td>
         <td><%= expense.name %></td>
+        <td><%= expense.description %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+        <% if expense.payment_at.nil? %>
+          <td><label>Data não informada</label></td>
+        <% else %>
+          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+        <% end %>
         <td class="icons">
           <%= link_to edit_expense_path(expense) do %>
-            <i class="bi bi-pencil me-3 "></i>
+            <i class="bi bi-pencil me-3"></i>
           <% end %>
-            <span class="ms-3"></span>
-          <%= link_to expense_path(expense), method: :delete, data: { confirm: "Deseja deletar %{expense.name}" } do %>
-              <i class="bi bi-trash "></i>
+          <span class="ms-3"></span>
+          <%= link_to expense_path(expense), data: { confirm: "confirm?" }, method: :delete do %>
+            <i class="bi bi-trash"></i>
           <% end %>
         </td>
       </tr>
