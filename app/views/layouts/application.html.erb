@@ -10,28 +10,14 @@
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="img/favicon-32x32.png"
-    >
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="img/favicon-16x16.png"
-    >
-    <link rel="manifest" href="/site.webmanifest">
   </head>
 
   <body>
-  <%= render "home/menu" %>
-  <div class="container">
-    <%= yield %>
-  </div>
-  <%= render "home/footer" %>
+    <%= render "home/menu" %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render "home/footer" %>
   </body>
 </html>
 
