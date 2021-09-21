@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col text-center">
     <div class="card-info">
-      <h2 class="mt-2 mb-1">Saldo Positivo</h2>
-      <h3>R$: <label class="text-success">3091039</label></h3>
+      <h2 class="mt-2 mb-1">Saldo Atual</h2>
+      <h3>R$: <label class="text-success"><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1">Saldo positivo: Todo o lucro.</label> <br>
       <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
     </div>
   </div>
   <div class="col text-center">
     <div class="card-info2">
-      <h2 class="mt-2 mb-1">Pendências</h2>
-      <h3>R$:</h3>
+      <h2 class="mt-2 mb-1">Saidas</h2>
+      <h3 class="text-danger"><%= number_to_currency(@total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
       <label class="mt-1 mb-1">Saldo negativo: Todos os gastos.</label>
       <br>
-      <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
+      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
     </div>
   </div>
 </div>
@@ -21,7 +21,7 @@
 <div class="row">
   <div class="col text-center">
     <div class="card-info">
-      <h2 class="mt-2 mb-1">Futuros Objetivos</h2>
+      <h2 class="mt-2 mb-1">Entradas</h2>
       <h3>R$: <label class="text1">3091039</label></h3>
       <label class="mt-1 mb-1">Valor total de todos as próximas metas.</label> <br>
       <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>

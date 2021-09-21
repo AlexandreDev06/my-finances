@@ -129,4 +129,7 @@
      background-color: white;
      height: 100vh;
  }
- 
+ .icons a{
+     text-decoration: none;
+     color: white;
+ }

@@ -19,7 +19,9 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @users = User.all
+  end
 
   def update
     if @expense.update values
