@@ -22,7 +22,7 @@
   <div class="col text-center">
     <div class="card-info">
       <h2 class="mt-2 mb-1">Entradas</h2>
-        <h3><label class="text-success"><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <h3><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></h3>
       <label class="mt-1 mb-1">Valor total de todos as próximas metas.</label> <br>
       <%= link_to "Saiba mais", credits_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
     </div>
@@ -30,7 +30,7 @@
   <div class="col text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Investimentos</h2>
-      <h3>R$: <label class="text2">3091039</label></h3>
+      <h3>R$: <label class="text2">0,00</label></h3>
       <label class="mt-1 mb-1">Saldo: todos os rendimentos líquidos</label>
       <br>
       <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
