@@ -1,7 +1,7 @@
 <%= form_with model: @expense do |f| %>
   <div class="form-group">
     <%= f.label :balance %>
-    <%= f.select :user_id, @users.map { |u| [u.balance, u.id] }, {}, class: "form-select" %>
+    <%= f.select :user_id, @users.map { |u| [u.balance, u.id] }, {}, class: "form-control disabled" %>
   </div>
   <div class="form-group">
     <%= f.label :nome %>

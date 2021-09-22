@@ -4,7 +4,7 @@
       <h2 class="mt-2 mb-1">Saldo Atual</h2>
       <h3>R$: <label class="text-success"><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1">Saldo positivo: Todo o lucro.</label> <br>
-      <%= link_to "Saiba mais", credits_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
+      <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
     </div>
   </div>
   <div class="col text-center">
@@ -24,7 +24,7 @@
       <h2 class="mt-2 mb-1">Entradas</h2>
       <h3>R$: <label class="text1">0,00</label></h3>
       <label class="mt-1 mb-1">Valor total de todos as próximas metas.</label> <br>
-      <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
+      <%= link_to "Saiba mais", credits_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
     </div>
   </div>
   <div class="col text-center">
