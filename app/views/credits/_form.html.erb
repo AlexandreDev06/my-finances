@@ -1,8 +1,9 @@
 <%= form_with model: @credit do |f| %>
   <div class="form-group">
-    <%= f.label :balance %>
-    <%= f.select :user_id, @users.map { |u| [u.balance, u.id] }, {}, class: "form-select" %>
+    <%= f.label :balance, class: "fs-5" %>
+    <%= f.label :user_id, @user.balance, class: "fs-2 text-success ms-5" %>
   </div>
+  <hr>
   <div class="form-group">
     <%= f.label :nome %>
     <%= f.text_field :name, class: "form-control" %>

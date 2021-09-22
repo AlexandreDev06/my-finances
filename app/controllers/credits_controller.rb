@@ -7,7 +7,7 @@ class CreditsController < ApplicationController
 
   def new
     @credit = Credit.new
-    @users = User.all
+    @user = User.first
   end
 
   def create
