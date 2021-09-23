@@ -65,7 +65,7 @@
       <tr>
         <td>Entradas</td>
         <td><%= credit.name %></td>
-        <td class="text-danger"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
         <% if credit.payment_at.nil? %>
           <td><label>Data não informada</label></td>
         <% else %>

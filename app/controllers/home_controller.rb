@@ -5,5 +5,6 @@ class HomeController < ApplicationController
     @credits = Credit.all
     @total_expense = @expenses.sum { |e| e.total }
     @total_credit = @credits.sum { |c| c.total }
+    @users = User.order :created_at
   end
 end
