@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-3">
+    <h3>Detalhes</h3>
+  </div>
+  <div class="col-md-3 float-end">
+
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Dia de pagamento</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td>Despesas</td>
+        <td><%= expense.name %></td>
+        <td><%= expense.description %></td>
+        <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <% if expense.payment_at.nil? %>
+          <td><label>Data não informada</label></td>
+        <% else %>
+          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+        <% end %>
+        <td class="icons">
+          <%= link_to edit_expense_path(expense) do %>
+            <i class="bi bi-pencil me-3"></i>
+          <% end %>
+          <span class="ms-3"></span>
+          <%= link_to expense_path(expense), data: { confirm: "confirm?" }, method: :delete do %>
+            <i class="bi bi-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

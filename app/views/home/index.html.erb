@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col text-center">
+    <div class="card-info">
+      <h2 class="mt-2 mb-1">Saldo Atual</h2>
+      <h3><label class="text-success"><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1">Saldo positivo: Todo o lucro.</label> <br>
+      <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
+    </div>
+  </div>
+  <div class="col text-center">
+    <div class="card-info2">
+      <h2 class="mt-2 mb-1">Saidas</h2>
+      <h3 class="text-danger"><%= number_to_currency(@total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
+      <label class="mt-1 mb-1">Saldo negativo: Todos os gastos.</label>
+      <br>
+      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col text-center">
+    <div class="card-info">
+      <h2 class="mt-2 mb-1">Entradas</h2>
+        <h3><label class="text-success"><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1">Valor total de todos as próximas metas.</label> <br>
+      <%= link_to "Saiba mais", credits_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
+    </div>
+  </div>
+  <div class="col text-center">
+    <div class="card-info2">
+      <h2 class="mt-2 mb-1">Investimentos</h2>
+      <h3>R$: <label class="text2">3091039</label></h3>
+      <label class="mt-1 mb-1">Saldo: todos os rendimentos líquidos</label>
+      <br>
+      <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
+    </div>
+  </div>
+</div>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Dia de pagamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td>Despesas</td>
+        <td><%= expense.name %></td>
+        <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <% if expense.payment_at.nil? %>
+          <td><label>Data não informada</label></td>
+        <% else %>
+          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% @credits.each do |credit| %>
+      <tr>
+        <td>Entradas</td>
+        <td><%= credit.name %></td>
+        <td class="text-danger"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <% if credit.payment_at.nil? %>
+          <td><label>Data não informada</label></td>
+        <% else %>
+          <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<h2 class="mb-4 title">Creditos</h2>
+<table class="table">
+  <thead>
+    <tr class="table-search">
+      <th class="col">Nome</th>
+      <th class="col-md-4">Descrição</th>
+      <th class="col">Valor</th>
+      <th class="col">Dia de pagamento</th>
+      <th class="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @credits.each do |credit| %>
+    <tr>
+      <td><%= credit.name %></td>
+      <td><%= credit.description %></td>
+      <td><%= number_to_currency(credit.total, unit: "R$ ", separator: ",", delimiter: ".") %></td>
+      <% if credit.payment_at.nil? %>
+        <td><label>Data não informada</label></td>
+      <% else %>
+        <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
+      <% end %>
+      <td class="icons">
+        <%= link_to edit_credit_path(credit), class: "me-5" do %>
+          <i class="bi bi-pencil" title="Edit"></i>
+        <% end %>
+        <%= link_to credit_path(credit), method: :delete, data: { confirm: "Confirm?" } do %>
+          <i class="bi bi-trash" title="Delete"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
