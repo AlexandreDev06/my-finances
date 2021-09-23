@@ -1,4 +1,13 @@
-<h2 class="mb-4 title">Creditos</h2>
+<div class="row mb-4">
+  <div class="col title">
+    <h3>Ganhos</h3>
+  </div>
+  <div class="col offset-md-8">
+    <%= link_to new_credit_path, class: "btn btn-outline-secondary" do %>
+      <i class="bi bi-plus-lg me-3"></i>Novo Credito
+    <% end %>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr class="table-search">
@@ -14,7 +23,7 @@
     <tr>
       <td><%= credit.name %></td>
       <td><%= credit.description %></td>
-      <td><%= number_to_currency(credit.total, unit: "R$ ", separator: ",", delimiter: ".") %></td>
+      <td class="text-success"><%= number_to_currency(credit.total, unit: "R$ ", separator: ",", delimiter: ".") %></td>
       <% if credit.payment_at.nil? %>
         <td><label>Data não informada</label></td>
       <% else %>
