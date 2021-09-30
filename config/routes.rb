@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :expenses
   resources :credits
+  resources :future_goals
 end
