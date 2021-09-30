@@ -11,28 +11,7 @@
       <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
     </div>
   </div>
-  <div class="col-md-4 text-center">
-    <div class="card-info2">
-      <h2 class="mt-2 mb-1">Saidas</h2>
-      <h3 class="text-danger"><%= number_to_currency(@total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
-      <label class="mt-1 mb-1">Saldo negativo: Todos os gastos.</label>
-      <br>
-      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
-    </div>
-  </div>
-  <div class="col-md-4 text-center">
-    <div class="card-info2">
-      <h2 class="mt-2 mb-1">Saidas</h2>
-      <h3 class="text-danger"><%= number_to_currency(@total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
-      <label class="mt-1 mb-1">Saldo negativo: Todos os gastos.</label>
-      <br>
-      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
-    </div>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-md-4 text-center">
+ <div class="col-md-4 text-center">
     <div class="card-info">
       <h2 class="mt-2 mb-1">Entradas</h2>
         <h3><label class="text-success"><%= number_to_currency(@total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
@@ -42,9 +21,31 @@
   </div>
   <div class="col-md-4 text-center">
     <div class="card-info2">
-      <h2 class="mt-2 mb-1">Investimentos</h2>
-      <h3>R$: <label class="text2">0</label></h3>
-      <label class="mt-1 mb-1">Saldo: todos os rendimentos líquidos</label>
+      <h2 class="mt-2 mb-1">Poupança</h2>
+
+      <label class="mt-1 mb-1">Todo o dinheiro guardado.</label>
+      <br>
+      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="card-info2">
+      <h2 class="mt-2 mb-1">Saidas</h2>
+      <h3 class="text-danger"><%= number_to_currency(@total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
+      <label class="mt-1 mb-1">Saldo negativo: Todos os gastos.</label>
+      <br>
+      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-primary text-uppercase" %>
+    </div>
+  </div>
+ 
+  <div class="col-md-4 text-center">
+    <div class="card-info2">
+      <h2 class="mt-2 mb-1">Futuros Objetivos</h2>
+      <h3>R$: <label class="text1">0</label></h3>
+      <label class="mt-1 mb-1">Próximas Metas/Compras</label>
       <br>
       <button class="mb-2 mt-1 btn btn-primary text-uppercase">Saiba mais</button>
     </div>
