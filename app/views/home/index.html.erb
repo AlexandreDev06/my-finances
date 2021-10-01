@@ -22,7 +22,11 @@
   <div class="col-md-4 text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Poupança</h2>
-
+      <% if @total_savings < 0 %>
+        <h3><label class="text-danger"><%= number_to_currency(@total_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% else %>
+        <h3><label class="text-success"><%= number_to_currency(@total_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% end %>
       <label class="mt-1 mb-1">Todo o dinheiro guardado.</label>
       <br>
       <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
@@ -31,6 +35,7 @@
 </div>
 <br>
 <div class="row">
+
   <div class="col-md-4 text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Saidas</h2>
@@ -50,6 +55,7 @@
       <%= link_to "Saiba mais", future_goals_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
     </div>
   </div>
+
   <div class="col-md-4 text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Investimentos</h2>
@@ -61,11 +67,12 @@
   </div>
 </div>
 <br>
-
+<!-- HISTORICO-->
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Tipo</th>
+      <th scope="col">Local</th>
       <th scope="col">Nome</th>
       <th scope="col">Valor</th>
       <th scope="col">Dia de pagamento</th>
@@ -75,6 +82,7 @@
     <% @expenses.each do |expense| %>
       <tr>
         <td>Despesas</td>
+        <td><%= expense.flux.capitalize %></td>
         <td><%= expense.name %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
         <% if expense.payment_at.nil? %>
@@ -87,6 +95,7 @@
     <% @credits.each do |credit| %>
       <tr>
         <td>Entradas</td>
+        <td><%= credit.flux.capitalize %></td>
         <td><%= credit.name %></td>
         <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
         <% if credit.payment_at.nil? %>

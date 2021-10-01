@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
     @users = User.all
+    @user = User.first
   end
 
   def create
