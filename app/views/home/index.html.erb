@@ -19,6 +19,19 @@
       <%= link_to "Saiba mais", credits_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="col-md-4 text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Poupança</h2>
@@ -29,11 +42,28 @@
       <% end %>
       <label class="mt-1 mb-1">Todo o dinheiro guardado.</label>
       <br>
-      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+      <button type="button" class="mb-2 mt-1 btn btn-dark text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Saiba mais
+      </button>
+
     </div>
   </div>
 </div>
 <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="row">
 
   <div class="col-md-4 text-center">
@@ -68,7 +98,7 @@
 </div>
 <br>
 <!-- HISTORICO-->
-<table class="table">
+<table class="table table-default">
   <thead>
     <tr>
       <th scope="col">Tipo</th>
@@ -107,3 +137,55 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Poupança</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Tipo</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Dia de pagamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @expenses.saving.each do |expense| %>
+              <tr>
+                <td>Despesas</td>
+                <td><%= expense.name %></td>
+                <td><%= expense.description %></td>
+                <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+                <% if expense.payment_at.nil? %>
+                  <td><label>Data não informada</label></td>
+                <% else %>
+                  <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+                <% end %>
+              </tr>
+            <% end %>
+            <% @credits.saving.each do |credit| %>
+              <tr>
+                <td>Entradas</td>
+                <td><%= credit.name %></td>
+                <td><%= credit.description %></td>
+                <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+                <% if credit.payment_at.nil? %>
+                  <td><label>Data não informada</label></td>
+                <% else %>
+                  <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
