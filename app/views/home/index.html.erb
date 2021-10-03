@@ -49,7 +49,7 @@
   <div class="col-md-4 text-center">
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Futuros Objetivos</h2>
-      <h3>R$: <label class="text1">0</label></h3>
+      <h3> <label class="text1"><%= number_to_currency(@total_future, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1">Próximas Metas/Compras</label>
       <br>
       <%= link_to "Saiba mais", future_goals_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>

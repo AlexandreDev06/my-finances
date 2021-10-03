@@ -1,130 +1,70 @@
 <h3 class="text-center">Futuros Objetivos</h3>
 
 
-<div class="row mx-2">
+<div class="row">
+  <h1>Não Necessários</h1>
+  <% @future_goals.no_need.each do |future_goal|%>
+    <div class="card mx-2 mb-4 bg-secondary shadow" style="width: 18rem;">
+      <div class="card-body">
+        <p class="card-title fs-4"><%= future_goal.name %></p>
+        <hr>
+        <label class="fw-bold">Desc: </label><lablel class="card-text"> <%= future_goal.description %></label><br>
+        <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
+        <% if future_goal.ending_date.nil? %>
+          <p class="text-danger">Data não informada</p>
+        <% else %>
+          <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
+        <%= link_to 'Deletar', future_goal_path(future_goal), method: :delete, class: 'text-decoration-none text-dark float-end', data: { confirm: "Confirma memo?"} %>
+      </div>
+    </div>
+  <% end %>
+  <hr>
 
-<div class="card mx-2 mb-4 bg-warning" style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
+  <h1>Necessários</h1>
+  <% @future_goals.need.each do |future_goal|%>
+    <div class="card mx-2 mb-4 bg-warning shadow" style="width: 18rem;">
+      <div class="card-body">
+        <p class="card-title fs-4"><%= future_goal.name %></p>
+        <hr>
+        <label class="fw-bold">Desc: </label><lablel class="card-text"> <%= future_goal.description %></label><br>
+        <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
+        <% if future_goal.ending_date.nil? %>
+          <p class="text-danger">Data não informada</p>
+        <% else %>
+          <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
+        <%= link_to 'Deletar', future_goal_path(future_goal), method: :delete, class: 'text-decoration-none text-dark float-end', data: { confirm: "Confirma memo?" } %>
+      </div>
+    </div>
+  <% end %>
+  <hr>
 
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-warning" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-warning" style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
- 
-  <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-secondary" style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
-
-<div class="card mx-2 mb-4 bg-warning" style="width: 18rem;">
-    <div class="card-body">
-    <h5 class="card-title">Objetivo</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-
-  <div class="card-body">
-    <a href="#" class="card-link">Editar</a>
-  </div>
-</div>
+  <h1>Urgentes</h1>
+  <% @future_goals.urgent.each do |future_goal|%>
+    <div class="card mx-2 mb-4 bg-danger shadow" style="width: 18rem;">
+      <div class="card-body">
+        <p class="card-title fs-4"><%= future_goal.name %></p>
+        <hr>
+        <label class="fw-bold">Desc: </label><lablel class="card-text"> <%= future_goal.description %></label><br>
+        <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
+        <% if future_goal.ending_date.nil? %>
+          <p class="text-danger">Data não informada</p>
+        <% else %>
+          <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
+        <%= link_to 'Deletar', future_goal_path(future_goal), method: :delete, class: 'text-decoration-none text-dark float-end', data: { confirm: "Confirma memo?" } %>
+      </div>
+    </div>
+  <% end %>
+  <hr>
 </div>
