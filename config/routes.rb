@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "home#index"
 
-  resources :expenses
-  resources :credits
-  resources :future_goals
+  resources :expenses, except: :show
+  resources :credits, except: :show
+  resources :future_goals, except: :show
 end
