@@ -52,7 +52,7 @@
       <div class="card-body">
         <p class="card-title fs-4"><%= future_goal.name %></p>
         <hr>
-        <label class="fw-bold">Descrição: </label><lablel class="card-text"> <%= future_goal.description %></label><br>
+        <label class="fw-bold">Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
         <% if future_goal.ending_date.nil? %>
           <p class="text-danger">Data não informada</p>
