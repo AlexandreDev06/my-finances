@@ -2,7 +2,7 @@ class CreditsController < ApplicationController
   before_action :set_credit, only: [:edit, :update, :destroy]
 
   def index
-    @credits = Credit.order :payment_at
+    @credits = Credit.order(payment_at: :desc)
   end
 
   def new
