@@ -4,10 +4,10 @@ class HomeController < ApplicationController
     @user = User.first
     @credits = Credit.all
     @future_goals = FutureGoal.all
-    @total_expense = @expenses.sum { |e| e.total }
-    @total_credit = @credits.sum { |c| c.total }
+    @total_expense = @expenses.sum { |e| e.payment_at.month == Date.current.month ? e.total : 0 }
+    @total_credit = @credits.sum { |c| c.payment_at.month == Date.current.month ? c.total : 0 }
     @users = User.order :created_at
-    @total_balance = @total_credit - @total_expense
+    @total_balance = @credits.sum { |c| c.total } - @expenses.sum { |e| e.total }
     @total_savings = @credits.saving.sum { |c| c.total } - @expenses.saving.sum { |e| e.total }
     @total_future = @future_goals.sum { |f| f.total }
   end
