@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  value: 1.5
+  description: MyString
+  date_payment: 2021-10-10
+  installment: 1
+  percentage: 1
+
+two:
+  name: MyString
+  value: 1.5
+  description: MyString
+  date_payment: 2021-10-10
+  installment: 1
+  percentage: 1
