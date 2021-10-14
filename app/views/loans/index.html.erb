@@ -1,0 +1,43 @@
+<div class="row mb-4">
+  <div class="col title">
+    <h3>Emprestimos</h3>
+  </div>
+  <div class="col offset-md-8">
+    <%= link_to new_loan_path, class: "btn btn-outline-secondary" do %>
+      <i class="bi bi-plus-lg me-3"></i>Emprestimo
+    <% end %>
+  </div>
+</div>
+<table class="table table-default">
+  <thead>
+    <tr class="table-search">
+      <th class="col">Nome</th>
+      <th class="col">Descrição</th>
+      <th class="col">Valor</th>
+      <th class="col">Parcelamento</th>
+      <th class="col">Juros</th>
+      <th class="col">Data de pagamento</th>
+      <th class="col-md-1"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @loans.each do |loan| %>
+    <tr>
+      <td><%= loan.name %></td>
+      <td><%= loan.description %></td>
+      <td><%= number_to_currency(loan.value, unit: "R$", separator: ",", delimiter: ".") %></td>
+      <td><%= loan.installment %>x</td>
+      <td><%= loan.percentage %>%</td>
+      <td><%= loan.date_payment.strftime("%d/%m/%Y") %></td>
+      <td class="icons">
+        <%= link_to edit_loan_path(loan), class: "me-5" do %>
+          <i class="bi bi-pencil" title="Edit"></i>
+        <% end %>
+        <%= link_to loan_path(loan), method: :delete, data: { confirm: "Confirm?" } do %>
+          <i class="bi bi-trash" title="Delete"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
