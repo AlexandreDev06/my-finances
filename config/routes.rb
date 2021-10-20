@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/investments"
   root "home#index"
 
   resources :expenses, except: :show
