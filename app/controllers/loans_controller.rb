@@ -12,6 +12,14 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new values
     if @loan.save!
+      @loan.installment.times do |time|
+        Credit.new(name: "Juros",
+                   description: "Juros de emprestimo do #{@loan.name}, Parcela N° #{time + 1}",
+                   total: @loan.per_loan(@loan.percentage, @loan.value),
+                   payment_at: @loan.date_payment.next_month(time),
+                   user_id: User.first.id,
+                   flux: 0).save!
+      end
       redirect_to loans_path
     else
       render :new
