@@ -1,0 +1,18 @@
+<%= form_with model: @saving do |form| %>
+  <div class="form-group">
+    <%= form.hidden_field :balance, value: Credit.total_credit_savings %>
+    <%= form.label 'Lucro da poupança em porcentagem' %>
+    <%= form.text_field :profit, class: "form-control", required: "required" %>
+  </div>
+  <div class="form-group">
+    <%= form.label 'Imposto de Renda' %>
+    <%= form.text_field :income_tax, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label 'IOF' %>
+    <%= form.text_field :iof, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.submit :salvar, class: "btn btn-success mt-3" %>
+  </div>
+<% end %>

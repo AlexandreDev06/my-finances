@@ -13,7 +13,7 @@ class CreditsController < ApplicationController
   def create
     @credit = Credit.new values
     if @credit.save
-      redirect_to root_path, notice: "Entrada cadastrada"
+      redirect_to root_path
     else
       render :index
     end
@@ -25,7 +25,7 @@ class CreditsController < ApplicationController
 
   def update
     if @credit.update values
-      redirect_to credits_path, notice: "Entrada Atualizada"
+      redirect_to credits_path
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class CreditsController < ApplicationController
 
   def destroy
     if @credit.destroy
-      redirect_to credits_path, notice: "Entrada deletada"
+      redirect_to credits_path
     else
       render :index
     end
