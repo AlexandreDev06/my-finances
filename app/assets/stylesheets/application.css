@@ -15,14 +15,12 @@
  *= require_self
  */
 
- 
- * {
+* {
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
 }
-
 
 .text1 {
   color: #fd7e14;
@@ -120,14 +118,19 @@ footer {
 }
 
 .container {
-  background-color: white;
+  background-color: #2A2A2A;
   height: 100vh;
 }
-.icons a{
+
+.icons a {
   text-decoration: none;
   color: white;
 }
 
 .rowsoc {
   text-transform: uppercase;
+}
+
+body {
+  background-color: #2A2A2A;
 }
