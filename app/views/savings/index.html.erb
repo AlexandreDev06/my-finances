@@ -1,5 +1,10 @@
-<%= link_to "Editar porcentagens", edit_saving_path(Saving.first), class: "btn btn-dark" %>
-
+<div class="row">
+  <div class="col-md-3 offset-10 mb-3">
+    <%= link_to edit_saving_path(Saving.first), class: "btn btn-dark" do %>
+      <i class="bi bi-pencil me-3"></i> Editar porcentagem
+    <% end %>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-4 text-center">
     <div class="card-info">
