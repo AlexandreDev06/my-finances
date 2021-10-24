@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_022133) do
+ActiveRecord::Schema.define(version: 2021_10_23_030646) do
 
   create_table "credits", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2021_10_11_022133) do
     t.date "date_payment"
     t.integer "installment"
     t.integer "percentage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "savings", force: :cascade do |t|
+    t.float "profit"
+    t.float "balance"
+    t.float "income_tax"
+    t.float "iof"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

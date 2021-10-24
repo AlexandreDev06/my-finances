@@ -1,0 +1,68 @@
+<%= link_to "Editar porcentagens", edit_saving_path(Saving.first), class: "btn btn-dark" %>
+
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="card-info">
+      <h2 class="mt-2 mb-1">Valor recebido Anualmente</h2>
+      <h3><label class="text-success"><%= number_to_currency(@saving.profit_annually(@saving), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1">apenas um texto de teste</label> <br>
+      <%= link_to "Acessar", loans_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+    </div>
+  </div>
+  <div class="col-md-4 text-center">
+    <div class="card-info">
+      <h2 class="mt-2 mb-1">Valor recebido Mensalmente</h2>
+      <h3><label class="text-success"><%= number_to_currency(@saving.profit_monthly(@saving), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1">apenas um texto de teste</label> <br>
+      <%= link_to "Acessar", savings_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+    </div>
+  </div>
+  <div class="col-md-4 text-center">
+    <div class="card-info">
+      <h2 class="mt-2 mb-1">Valor recebido Diariamente</h2>
+      <h3><label class="text-success"><%= number_to_currency(@saving.profit_daily(@saving), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1">apenas um texto de teste</label> <br>
+      <%= link_to "Acessar", savings_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+    </div>
+  </div>
+</div>
+
+<table class="table table-default mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Dia de pagamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Expense.all.saving.each do |expense| %>
+      <tr>
+        <td>Despesas</td>
+        <td><%= expense.name %></td>
+        <td><%= expense.description %></td>
+        <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <% if expense.payment_at.nil? %>
+          <td><label>Data não informada</label></td>
+        <% else %>
+          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% Credit.all.saving.each do |credit| %>
+      <tr>
+        <td>Entradas</td>
+        <td><%= credit.name %></td>
+        <td><%= credit.description %></td>
+        <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <% if credit.payment_at.nil? %>
+          <td><label>Data não informada</label></td>
+        <% else %>
+          <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

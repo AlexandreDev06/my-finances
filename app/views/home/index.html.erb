@@ -22,17 +22,16 @@
   <div class="col-md-4 text-center">  
     <div class="card-info2">
       <h2 class="mt-2 mb-1">Poupança</h2>
-      <% if @total_savings < 0 %>
-        <h3><label class="text-danger"><%= number_to_currency(@total_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% if Credit.total_credit_savings < 0 %>
+        <h3><label class="text-danger"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <% else %>
-        <h3><label class="text-success"><%= number_to_currency(@total_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+        <h3><label class="text-success"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <% end %>
       <label class="mt-1 mb-1">Todo o dinheiro guardado.</label>
       <br>
       <button type="button" class="mb-2 mt-1 btn btn-dark text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Saiba mais
       </button>
-
     </div>
   </div>
 </div>

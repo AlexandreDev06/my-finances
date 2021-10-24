@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :credits, except: :show
   resources :future_goals, except: :show
   resources :loans, except: :show
+  resources :savings, except: [:show, :destroy]
 end
