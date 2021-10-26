@@ -46,6 +46,9 @@
         </li>
       </ul>
     </div>
+    <%= link_to destroy_user_session_path, method: :delete, class: "fs-5 me-5 text-decoration-none text-light" do %>
+      Logout <i class="bi bi-power"></i>
+    <% end %>
     <p class="float-end text-light me-5 table-default rounded-pill p-2 mt-2"><%= Time.current.strftime("%d/%m/%y - %H:%M") %></p>
   </div>
 </nav>

@@ -13,7 +13,9 @@
   </head>
 
   <body>
-    <%= render "layouts/menu" %>
+    <% if user_signed_in?%>
+      <%= render "layouts/menu" %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
