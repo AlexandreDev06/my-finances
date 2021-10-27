@@ -20,7 +20,7 @@
   padding: 0;
   list-style: none;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .text1 {
@@ -33,7 +33,7 @@
 
 .navbar {
   height: 70px;
-  background-color: #A7A4A3;
+  background-color: #F1F1E8;
   margin-bottom: 0.5rem;
 }
 
@@ -51,14 +51,13 @@
 
 .card-info {
   border-radius: 15px;
-  text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, .4);
-  background-color: #535151;
+  background-color: #F1F1E8;
   color: white;
 }
 
 .table-default {
-  color: white;
-  background-color: #535151;
+  color: black;
+  background-color: #F1F1E8;
 }
 
 footer {
@@ -69,7 +68,7 @@ footer {
 }
 
 .container {
-  background-color: #2A2A2A;
+  background-color: #A19882;
   height: 100vh;
 }
 
@@ -83,5 +82,5 @@ footer {
 }
 
 body {
-  background-color: #2A2A2A;
+  background-color: #A19882;
 }
