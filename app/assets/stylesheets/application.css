@@ -15,8 +15,16 @@
  *= require_self
  */
 
+<<<<<<< Updated upstream
  
  * {
+=======
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+* {
+  
+>>>>>>> Stashed changes
   margin: 0;
   padding: 0;
   list-style: none;
@@ -39,7 +47,7 @@
 
 .navbar {
   height: 70px;
-  background-color: #A7A4A3;
+  background-color: #F7F6F2;
   margin-bottom: 0.5rem;
 }
 
@@ -63,11 +71,11 @@
 
 .card-info {
   border-radius: 15px;
-  text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, .4);
-  background-color: #535151;
+  background-color: #F7F6F2;
   color: white;
 }
 
+<<<<<<< Updated upstream
 .card-info2 {
   border-radius: 15px;
   text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, .4);
@@ -110,6 +118,12 @@
 .table {
   color: white;
   background-color: #535151;
+=======
+.table-default {
+  color: black;
+  font-weight: 490;
+  background-color: #F7F6F2;
+>>>>>>> Stashed changes
 }
 
 footer {
@@ -120,10 +134,26 @@ footer {
 }
 
 .container {
+<<<<<<< Updated upstream
   background-color: white;
+=======
+  background-color:#9A9483;
+>>>>>>> Stashed changes
   height: 100vh;
 }
 .icons a{
   text-decoration: none;
   color: white;
 }
+<<<<<<< Updated upstream
+=======
+
+.rowsoc {
+  text-transform: uppercase;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #9A9483;
+}
+>>>>>>> Stashed changes
