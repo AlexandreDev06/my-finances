@@ -33,7 +33,7 @@
 
 .navbar {
   height: 70px;
-  background-color: #F1F1E8;
+  background-color: #F3F1F5;
   margin-bottom: 0.5rem;
 }
 
@@ -51,13 +51,13 @@
 
 .card-info {
   border-radius: 15px;
-  background-color: #F1F1E8;
+  background-color: #F3F1F5;
   color: white;
 }
 
 .table-default {
   color: black;
-  background-color: #F1F1E8;
+  background-color: #F3F1F5;
 }
 
 footer {
@@ -68,7 +68,7 @@ footer {
 }
 
 .container {
-  background-color: #A19882;
+  background-color: #C9CCD5;
   height: 100vh;
 }
 
@@ -82,5 +82,5 @@ footer {
 }
 
 body {
-  background-color: #A19882;
+  background-color: #C9CCD5;
 }
