@@ -7,8 +7,10 @@
       <% else %>
         <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <% end %>
-      <label class="mt-1 mb-1 text-dark">Saldo positivo: Todo o lucro.</label> <br>
-      <button class="mb-2 mt-1 btn btn-dark text-uppercase">Saiba mais</button>
+      <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label> 
+      <br>
+      <br>
+      <br>
     </div>
   </div>
  <div class="col-md-4 text-center">
@@ -16,7 +18,7 @@
       <h2 class="mt-2 mb-1 text-dark">Entradas</h2>
         <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
-      <%= link_to "Saiba mais", credits_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+      <%= link_to "Detalhes", credits_path, class: "mb-2 mt-1 btn btn-dark" %>
     </div>
   </div>
   <div class="col-md-4 text-center">  
@@ -29,8 +31,8 @@
       <% end %>
       <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
       <br>
-      <button type="button" class="mb-2 mt-1 btn btn-dark text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Saiba mais
+      <button type="button" class="mb-2 mt-1 btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Detalhes
       </button>
     </div>
   </div>
@@ -44,7 +46,7 @@
       <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
       <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
       <br>
-      <%= link_to "Saiba mais", expenses_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+      <%= link_to "Detalhes", expenses_path, class: "mb-2 mt-1 btn btn-dark" %>
     </div>
   </div>
  
@@ -54,7 +56,7 @@
       <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
       <br>
-      <%= link_to "Saiba mais", future_goals_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
+      <%= link_to "Detalhes", future_goals_path, class: "mb-2 mt-1 btn btn-dark" %>
     </div>
   </div>
 
@@ -64,7 +66,7 @@
       <h3>R$: <label class="text2">0</label></h3>
       <label class="mt-1 mb-1 text-dark">Saldo: todos os rendimentos líquidos</label>
       <br>
-      <%= link_to 'Saiba Mais', home_investments_path, class: 'mb-2 mt-1 btn btn-dark text-uppercase' %>
+      <%= link_to 'Detalhes', home_investments_path, class: 'mb-2 mt-1 btn btn-dark' %>
     </div>
   </div>
 </div>
