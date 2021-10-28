@@ -1,198 +1,141 @@
 
-<div class="row">
-  <div class="col-md-4 text-center">
-    <div class="card-info">
-      <h2 class="mt-2 mb-1 text-dark">Saldo Atual</h2>
-      <% if @total_balance < 0 %>
-        <h3><label class="text-danger"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <% else %>
-        <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <% end %>
-      <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
-      <br>
-      <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
-      <br>
-      <br>
-    </div>
-  </div>
- <div class="col-md-4 text-center">
-    <div class="card-info">
-      <h2 class="mt-2 mb-1 text-dark">Entradas</h2>
-        <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
-      <div class="col">
-        <%= link_to "Detalhes", credits_path, class: "mb-2 mt-1 btn btn-dark" %>
-        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
-          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
-        <% end %>
-        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 text-center">  
-    <div class="card-info">
-      <h2 class="mt-2 mb-1 text-dark">Poupança</h2>
-      <% if Credit.total_credit_savings < 0 %>
-        <h3><label class="text-danger"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <% else %>
-        <h3><label class="text-success"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <% end %>
-      <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
-      <br>
-      <div class="col">
-        <button type="button" class="mb-2 mt-1 btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Detalhes
-        </button>
-        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
-          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
-        <% end %>
-        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-<div class="row">
-
-  <div class="col-md-4 text-center">
-    <div class="card-info">
-      <h2 class="mt-2 mb-1 text-dark">Saidas</h2>
-      <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
-      <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
-      <br>
-      <div class="col">
-        <%= link_to "Detalhes", expenses_path, class: "mb-2 mt-1 btn btn-dark" %>
-        <%= link_to new_expense_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
-          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
-        <% end %>
-        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
-      </div>
-    </div>
-  </div>
- 
-  <div class="col-md-4 text-center">
-    <div class="card-info">
-      <h2 class="mt-2 mb-1 text-dark">Futuros Objetivos</h2>
-      <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
-      <br>
-      <div class="col">
-        <%= link_to "Detalhes", future_goals_path, class: "mb-2 mt-1 btn btn-dark" %>
-        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
-          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
-        <% end %>
-        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4 text-center">
-    <div class="card-info" >
-      <h2 class="mt-2 mb-1 text-dark">Investimentos</h2>
-      <h3>R$: <label class="text2">0</label></h3>
-      <label class="mt-1 mb-1 text-dark">Saldo: todos os rendimentos líquidos</label>
-      <br>
-      <div class="col">
-        <%= link_to 'Detalhes', home_investments_path, class: 'mb-2 mt-1 btn btn-dark' %>
-        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
-          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
-        <% end %>
-        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-<!-- HISTORICO-->
-<table class="table table-default">
-  <thead>
-    <tr>
-      <th scope="col">Tipo</th>
-      <th scope="col">Local</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Dia de pagamento</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @expenses.each do |expense| %>
-      <tr>
-        <td>Despesas</td>
-        <td><%= expense.flux.capitalize %></td>
-        <td><%= expense.name %></td>
-        <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <% if expense.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <div class="card-info">
+        <h2 class="mt-2 mb-1 text-dark">Saldo Atual</h2>
+        <% if @total_balance < 0 %>
+          <h3><label class="text-danger"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <% else %>
-          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+          <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <% end %>
-      </tr>
-    <% end %>
-    <% @credits.each do |credit| %>
-      <tr>
-        <td>Entradas</td>
-        <td><%= credit.flux.capitalize %></td>
-        <td><%= credit.name %></td>
-        <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <% if credit.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
-        <% else %>
-          <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Poupança</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
+        <br>
+        <i class="bi bi-question-lg fs-5" title="ALTERA ISSO AQUI"></i>
+        <br>
+        <br>
       </div>
-      <div class="modal-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Tipo</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Dia de pagamento</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @expenses.saving.each do |expense| %>
-              <tr>
-                <td>Despesas</td>
-                <td><%= expense.name %></td>
-                <td><%= expense.description %></td>
-                <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-                <% if expense.payment_at.nil? %>
-                  <td><label>Data não informada</label></td>
-                <% else %>
-                  <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
-                <% end %>
-              </tr>
-            <% end %>
-            <% @credits.saving.each do |credit| %>
-              <tr>
-                <td>Entradas</td>
-                <td><%= credit.name %></td>
-                <td><%= credit.description %></td>
-                <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-                <% if credit.payment_at.nil? %>
-                  <td><label>Data não informada</label></td>
-                <% else %>
-                  <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
-                <% end %>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="card-info">
+        <h2 class="mt-2 mb-1 text-dark">Entradas</h2>
+          <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+        <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
+          <%= link_to "Detalhes", credits_path, class: "mb-2 btn btn-dark" %>
+          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+            <i class="bi bi-plus-lg text-light"></i>Novo
+          <% end %>
+          <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"></i>
+      </div>
+    </div>
+
+    <div class="col-md-4 text-center">  
+      <div class="card-info">
+        <h2 class="mt-2 mb-1 text-dark">Poupança</h2>
+        <% if Credit.total_credit_savings < 0 %>
+          <h3><label class="text-danger"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+        <% else %>
+          <h3><label class="text-success"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+        <% end %>
+        <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
+        <br>
+        <div class="col">          
+          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+            <i class="bi bi-plus-lg text-light"></i>Novo
+          <% end %>
+          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <br>
+  <div class="row">
+
+    <div class="col-md-4 text-center">
+      <div class="card-info">
+        <h2 class="mt-2 mb-1 text-dark">Saidas</h2>
+        <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
+        <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
+        <br>
+        <div class="col">
+          <%= link_to "Detalhes", expenses_path, class: "mb-2 btn btn-dark" %>
+          <%= link_to new_expense_path, class: "mb-2 btn btn-dark" do %>
+            <i class="bi bi-plus-lg text-light"></i>Novo
+          <% end %>
+          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-4 text-center">
+      <div class="card-info">
+        <h2 class="mt-2 mb-1 text-dark">Futuros Objetivos</h2>
+        <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+        <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
+        <br>
+        <div class="col">
+          <%= link_to "Detalhes", future_goals_path, class: "mb-2 btn btn-dark" %>
+          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+            <i class="bi bi-plus-lg text-light"></i>Novo
+          <% end %>
+          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="card-info" >
+        <h2 class="mt-2 mb-1 text-dark">Investimentos</h2>
+        <h3>R$: <label class="text2">0</label></h3>
+        <label class="mt-1 mb-1 text-dark">Saldo: todos os rendimentos líquidos</label>
+        <br>
+          <%= link_to 'Detalhes', home_investments_path, class: 'mb-2 btn btn-dark' %>
+          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+            <i class="bi bi-plus-lg text-light"></i>Novo
+          <% end %>
+          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+      </div>
+    </div>
+  </div>
+  <br>
+  <!-- HISTORICO-->
+  <table class="table table-default">
+    <thead>
+      <tr>
+        <th scope="col">Tipo</th>
+        <th scope="col">Local</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Dia de pagamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <td>Despesas</td>
+          <td><%= expense.flux.capitalize %></td>
+          <td><%= expense.name %></td>
+          <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+          <% if expense.payment_at.nil? %>
+            <td><label>Data não informada</label></td>
+          <% else %>
+            <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
+          <% end %>
+        </tr>
+      <% end %>
+      <% @credits.each do |credit| %>
+        <tr>
+          <td>Entradas</td>
+          <td><%= credit.flux.capitalize %></td>
+          <td><%= credit.name %></td>
+          <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+          <% if credit.payment_at.nil? %>
+            <td><label>Data não informada</label></td>
+          <% else %>
+            <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
