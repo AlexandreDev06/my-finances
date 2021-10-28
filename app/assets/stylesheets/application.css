@@ -15,7 +15,7 @@
  *= require_self
  */
 
- * {
+* {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -50,12 +50,13 @@
 }
 
 .card-info {
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: #F3F1F5;
   color: white;
 }
 
 .table-default {
+  border-radius: 5px;
   color: black;
   background-color: #F3F1F5;
 }
@@ -83,4 +84,8 @@ footer {
 
 body {
   background-color: #C9CCD5;
+}
+
+.bi-info-circle-fill {
+  font-size: 2rem;
 }
