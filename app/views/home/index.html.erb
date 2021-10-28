@@ -1,8 +1,8 @@
 
   <div class="row">
     <div class="col-md-4 text-center">
-      <div class="card-info">
-        <h2 class="mt-2 mb-1 text-dark">Saldo Atual</h2>
+      <div class="card-info position-relative">
+        <h3 class="mt-2 mb-1 text-dark">Saldo Atual</h3>
         <% if @total_balance < 0 %>
           <h3><label class="text-danger"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <% else %>
@@ -10,28 +10,28 @@
         <% end %>
         <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
         <br>
-        <i class="bi bi-question-lg fs-5" title="ALTERA ISSO AQUI"></i>
+        <i class="bi bi-info-circle-fill fs-5 position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
         <br>
         <br>
       </div>
     </div>
 
     <div class="col-md-4 text-center">
-      <div class="card-info">
-        <h2 class="mt-2 mb-1 text-dark">Entradas</h2>
+      <div class="card-info position-relative">
+        <h3 class="mt-2 mb-1 text-dark">Entradas</h3>
           <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
           <%= link_to "Detalhes", credits_path, class: "mb-2 btn btn-dark" %>
           <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
             <i class="bi bi-plus-lg text-light"></i>Novo
           <% end %>
-          <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"></i>
+          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"></i>
       </div>
     </div>
 
     <div class="col-md-4 text-center">  
-      <div class="card-info">
-        <h2 class="mt-2 mb-1 text-dark">Poupança</h2>
+      <div class="card-info position-relative">
+        <h3 class="mt-2 mb-1 text-dark">Poupança</h3>
         <% if Credit.total_credit_savings < 0 %>
           <h3><label class="text-danger"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <% else %>
@@ -43,7 +43,7 @@
           <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
             <i class="bi bi-plus-lg text-light"></i>Novo
           <% end %>
-          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
         </div>
       </div>
     </div>
@@ -52,8 +52,8 @@
   <div class="row">
 
     <div class="col-md-4 text-center">
-      <div class="card-info">
-        <h2 class="mt-2 mb-1 text-dark">Saidas</h2>
+      <div class="card-info position-relative">
+        <h3 class="mt-2 mb-1 text-dark">Saidas</h3>
         <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
         <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
         <br>
@@ -62,30 +62,29 @@
           <%= link_to new_expense_path, class: "mb-2 btn btn-dark" do %>
             <i class="bi bi-plus-lg text-light"></i>Novo
           <% end %>
-          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
         </div>
       </div>
     </div>
   
     <div class="col-md-4 text-center">
-      <div class="card-info">
-        <h2 class="mt-2 mb-1 text-dark">Futuros Objetivos</h2>
+      <div class="card-info position-relative">
+        <h3 class="mt-2 mb-1 text-dark">Futuros Objetivos</h3>
         <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
         <br>
         <div class="col">
           <%= link_to "Detalhes", future_goals_path, class: "mb-2 btn btn-dark" %>
           <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
-            <i class="bi bi-plus-lg text-light"></i>Novo
-          <% end %>
-          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+            <i class="bi bi-plus-lg text-light"></i>Novo<% end %>
+          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
         </div>
       </div>
     </div>
 
     <div class="col-md-4 text-center">
-      <div class="card-info" >
-        <h2 class="mt-2 mb-1 text-dark">Investimentos</h2>
+      <div class="card-info position-relative" >
+        <h3 class="mt-2 mb-1 text-dark">Investimentos</h3>
         <h3>R$: <label class="text2">0</label></h3>
         <label class="mt-1 mb-1 text-dark">Saldo: todos os rendimentos líquidos</label>
         <br>
@@ -93,7 +92,7 @@
           <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
             <i class="bi bi-plus-lg text-light"></i>Novo
           <% end %>
-          <i class="bi bi-info-circle-fill" title="ALTERA ISSO AQUI"></i>
+          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
       </div>
     </div>
   </div>
