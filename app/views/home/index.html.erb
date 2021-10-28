@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-4 text-center">
     <div class="card-info">
@@ -7,8 +8,9 @@
       <% else %>
         <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <% end %>
-      <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label> 
+      <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
       <br>
+      <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
       <br>
       <br>
     </div>
@@ -18,9 +20,16 @@
       <h2 class="mt-2 mb-1 text-dark">Entradas</h2>
         <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
-      <%= link_to "Detalhes", credits_path, class: "mb-2 mt-1 btn btn-dark" %>
+      <div class="col">
+        <%= link_to "Detalhes", credits_path, class: "mb-2 mt-1 btn btn-dark" %>
+        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
+          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
+      </div>
     </div>
   </div>
+
   <div class="col-md-4 text-center">  
     <div class="card-info">
       <h2 class="mt-2 mb-1 text-dark">Poupança</h2>
@@ -31,9 +40,15 @@
       <% end %>
       <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
       <br>
-      <button type="button" class="mb-2 mt-1 btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Detalhes
-      </button>
+      <div class="col">
+        <button type="button" class="mb-2 mt-1 btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Detalhes
+        </button>
+        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
+          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
+      </div>
     </div>
   </div>
 </div>
@@ -46,7 +61,13 @@
       <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
       <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
       <br>
-      <%= link_to "Detalhes", expenses_path, class: "mb-2 mt-1 btn btn-dark" %>
+      <div class="col">
+        <%= link_to "Detalhes", expenses_path, class: "mb-2 mt-1 btn btn-dark" %>
+        <%= link_to new_expense_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
+          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
+      </div>
     </div>
   </div>
  
@@ -56,7 +77,13 @@
       <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
       <br>
-      <%= link_to "Detalhes", future_goals_path, class: "mb-2 mt-1 btn btn-dark" %>
+      <div class="col">
+        <%= link_to "Detalhes", future_goals_path, class: "mb-2 mt-1 btn btn-dark" %>
+        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
+          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
+      </div>
     </div>
   </div>
 
@@ -66,7 +93,13 @@
       <h3>R$: <label class="text2">0</label></h3>
       <label class="mt-1 mb-1 text-dark">Saldo: todos os rendimentos líquidos</label>
       <br>
-      <%= link_to 'Detalhes', home_investments_path, class: 'mb-2 mt-1 btn btn-dark' %>
+      <div class="col">
+        <%= link_to 'Detalhes', home_investments_path, class: 'mb-2 mt-1 btn btn-dark' %>
+        <%= link_to new_credit_path, class: "mb-2 mt-1 btn btn-dark ms-3" do %>
+          <i class="bi bi-plus-lg me-1 text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-question-lg float-end me-3 fs-5" title="ALTERA ISSO AQUI"></i>
+      </div>
     </div>
   </div>
 </div>
