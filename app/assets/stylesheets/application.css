@@ -23,14 +23,13 @@
   color: black;
 }
 
-.text1 {
-  color: #fd7e14;
+body {
+  background-color: #191A19;
 }
 
-.text2 {
-  color: #d63384;
+.container {
+  background-color: #191A19;
 }
-
 .navbar {
   height: 70px;
   background-color: #F3F1F5;
@@ -55,21 +54,14 @@
   color: white;
 }
 
+.text1 {
+  color: #03506F;
+}
+
 .table-default {
   border-radius: 5px;
   color: black;
   background-color: #F3F1F5;
-}
-
-footer {
-  height: 50px;
-  bottom: 0;
-  color: black;
-  background-color: #A7A4A3;
-}
-
-.container {
-  background-color: #C9CCD5;
 }
 
 .icons a {
@@ -81,13 +73,12 @@ footer {
   text-transform: uppercase;
 }
 
-body {
-  background-color: #C9CCD5;
-}
 
 .bi-info-circle-fill {
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
+
+/* Página de LogIn */
 
 .login-page-container {
   display: flex;
@@ -98,6 +89,7 @@ body {
 
 .box {
   width: 400px;
-  height: 350px;
+  height: 100%;
   background: #fff;
+  margin-bottom: 50px;
 }
