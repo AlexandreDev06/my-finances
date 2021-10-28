@@ -70,7 +70,6 @@ footer {
 
 .container {
   background-color: #C9CCD5;
-  height: 100vh;
 }
 
 .icons a {
@@ -88,4 +87,17 @@ body {
 
 .bi-info-circle-fill {
   font-size: 2rem;
+}
+
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.box {
+  width: 400px;
+  height: 350px;
+  background: #fff;
 }
