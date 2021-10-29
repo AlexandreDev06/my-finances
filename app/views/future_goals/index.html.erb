@@ -10,6 +10,7 @@
 </div>
 
 <div class="row">
+
   <h1 class="text-uppercase fs-3">Urgentes</h1>
   <% @future_goals.urgent.each do |future_goal|%>
     <div class="card mx-2 mb-4 bg-danger shadow" style="width: 18rem;">
@@ -18,11 +19,7 @@
         <hr>
         <label class="fw-bold">Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
-        <% if future_goal.ending_date.nil? %>
-          <p class="text-danger">Data não informada</p>
-        <% else %>
-          <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
-        <% end %>
+        <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
       <div class="card-body">
         <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
@@ -40,11 +37,7 @@
         <hr>
         <label class="fw-bold text-uppercase"> Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
-        <% if future_goal.ending_date.nil? %>
-          <p class="text-danger">Data não informada</p>
-        <% else %>
-          <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
-        <% end %>
+        <label class="fw-bold">Data:</label><label> <%= future_goal&.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
       <div class="card-body">
         <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
@@ -52,9 +45,9 @@
       </div>
     </div>
   <% end %>
-  <hr>
 
-<h1 class="text-uppercase fs-3">Não Necessários</h1>
+  <hr>
+  <h1 class="text-uppercase fs-3">Não Necessários</h1>
   <% @future_goals.no_need.each do |future_goal|%>
     <div class="card mx-2 mb-4 bg-secondary shadow" style="width: 18rem;">
       <div class="card-body">
@@ -62,11 +55,7 @@
         <hr>
         <label class="fw-bold">Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
-        <% if future_goal.ending_date.nil? %>
-          <p class="text-danger">Data não informada</p>
-        <% else %>
-          <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
-        <% end %>
+        <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
       <div class="card-body">
         <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
@@ -75,5 +64,4 @@
     </div>
   <% end %>
   <hr>
-
 </div>

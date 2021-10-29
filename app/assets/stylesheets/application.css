@@ -30,16 +30,14 @@ body {
 .container {
   background-color: #191A19;
 }
+
+
+/* NAVBAR */
+
 .navbar {
   height: 70px;
   background-color: #F3F1F5;
   margin-bottom: 0.5rem;
-}
-
-.img-wrapper {
-  height: 80px;
-  width: 120px;
-  margin-left: 100px;
 }
 
 .navbar img {
@@ -47,6 +45,9 @@ body {
   width: 120px;
   margin-left: 2px;
 }
+
+
+/* CARDS */
 
 .card-info {
   border-radius: 5px;
@@ -58,25 +59,27 @@ body {
   color: #03506F;
 }
 
+
+/*TABELAS*/
+
 .table-default {
   border-radius: 5px;
   color: black;
   background-color: #F3F1F5;
 }
 
+
+/* ICONS */
+
 .icons a {
   text-decoration: none;
   color: white;
 }
 
-.rowsoc {
-  text-transform: uppercase;
-}
-
-
 .bi-info-circle-fill {
   font-size: 1.4rem;
 }
+
 
 /* Página de LogIn */
 

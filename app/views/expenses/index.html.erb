@@ -26,11 +26,7 @@
         <td><%= expense.name %></td>
         <td><%= expense.description %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <% if expense.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
-        <% else %>
-          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
-        <% end %>
+        <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
         <td class="icons">
           <%= link_to edit_expense_path(expense) do %>
             <i class="bi bi-pencil me-3"></i>
