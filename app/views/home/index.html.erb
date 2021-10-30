@@ -1,133 +1,133 @@
-
-  <div class="row">
-    <div class="col-md-4 text-center">
-      <div class="card-info position-relative">
-        <h3 class="mt-2 mb-1 text-dark">Saldo Atual</h3>
-        <% if @total_balance < 0 %>
-          <h3><label class="text-danger"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-        <% else %>
-          <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-        <% end %>
-        <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
-        <br>
-        <i class="bi bi-info-circle-fill fs-5 position-absolute me-2 top-0 end-0 translate-right" title="Saldo Atual é todo valor disponível na sua carteira, não são contabilizados os valores da poupança."></i>
-        <br>
-        <br>
-      </div>
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative">
+      <h3 class="mt-2 mb-1 text-dark">Saldo Atual</h3>
+      <% if @total_balance < 0 %>
+        <h3><label class="text-danger"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% else %>
+        <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% end %>
+      <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
+      <br>
+      <i class="bi bi-info-circle-fill fs-5 position-absolute me-2 top-0 end-0 translate-right" title="Saldo Atual é todo valor disponível na sua carteira, não são contabilizados os valores da poupança."></i>
+      <br>
+      <br>
     </div>
+  </div>
 
-    <div class="col-md-4 text-center">
-      <div class="card-info position-relative">
-        <h3 class="mt-2 mb-1 text-dark">Entradas</h3>
-          <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-        <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
-          <%= link_to "Detalhes", credits_path, class: "mb-2 btn btn-dark" %>
-          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
-            <i class="bi bi-plus-lg text-light"></i>Novo
-          <% end %>
-          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Todo saldo de entradas dos últimos 2 meses."></i>
-      </div>
-    </div>
-
-    <div class="col-md-4 text-center">  
-      <div class="card-info position-relative">
-        <h3 class="mt-2 mb-1 text-dark">Poupança</h3>
-        <% if Credit.total_credit_savings < 0 %>
-          <h3><label class="text-danger"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-        <% else %>
-          <h3><label class="text-success"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative">
+      <h3 class="mt-2 mb-1 text-dark">Entradas</h3>
+        <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
+        <%= link_to "Detalhes", credits_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
         <% end %>
-        <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
-        <br>
-        <div class="col">          
-          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
-            <i class="bi bi-plus-lg text-light"></i>Novo
-          <% end %>
-          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Todo o dinheiro na Poupança ou mesmo debaixo do seu colchão. Os valores da poupança não são enviados para o saldo atual já que são valores que você normalmente não pretende mexer."></i>
-        </div>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" data-bs-toggle="tooltip" data-bs-placement="top" title="Todo saldo de entradas dos últimos 2 meses."></i>
+    </div>
+  </div>
+
+  <div class="col-md-4 text-center">  
+    <div class="card-info position-relative">
+      <h3 class="mt-2 mb-1 text-dark">Poupança</h3>
+      <% if Credit.total_credit_savings < 0 %>
+        <h3><label class="text-danger"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% else %>
+        <h3><label class="text-success"><%= number_to_currency(Credit.total_credit_savings, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <% end %>
+      <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
+      <br>
+      <div class="col">          
+        <%= link_to "Detalhes", savings_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Todo o dinheiro na Poupança ou mesmo debaixo do seu colchão. Os valores da poupança não são enviados para o saldo atual já que são valores que você normalmente não pretende mexer."></i>
       </div>
     </div>
   </div>
-  <br>
-  <div class="row">
+</div>
+<br>
+<div class="row">
 
-    <div class="col-md-4 text-center">
-      <div class="card-info position-relative">
-        <h3 class="mt-2 mb-1 text-dark">Saidas</h3>
-        <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
-        <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
-        <br>
-        <div class="col">
-          <%= link_to "Detalhes", expenses_path, class: "mb-2 btn btn-dark" %>
-          <%= link_to new_expense_path, class: "mb-2 btn btn-dark" do %>
-            <i class="bi bi-plus-lg text-light"></i>Novo
-          <% end %>
-          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Saídas é todo tipo de gasto, seja fixo, ocasional ou mesmo aquela saidinha de fim de semana. Serve para ter um controle de tudo que está saindo da sua carteira."></i>
-        </div>
-      </div>
-    </div>
-  
-    <div class="col-md-4 text-center">
-      <div class="card-info position-relative">
-        <h3 class="mt-2 mb-1 text-dark">Futuros Objetivos</h3>
-        <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-        <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
-        <br>
-        <div class="col">
-          <%= link_to "Detalhes", future_goals_path, class: "mb-2 btn btn-dark" %>
-          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
-            <i class="bi bi-plus-lg text-light"></i>Novo<% end %>
-          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Futuros objetivos é tudo aquilo que você pretende comprar, seja um tênis até mesmo um apartamento, assim você consegue ter uma noção de quanto irá gastar nas suas próximas metas."></i>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 text-center">
-      <div class="card-info position-relative" >
-        <h3 class="mt-2 mb-1 text-dark">Investimentos</h3>
-        <h3>R$: <label class="text2">0</label></h3>
-        <label class="mt-1 mb-1 text-dark">Saldo: todos os rendimentos líquidos</label>
-        <br>
-          <%= link_to 'Detalhes', home_investments_path, class: 'mb-2 btn btn-dark' %>
-          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
-            <i class="bi bi-plus-lg text-light"></i>Novo
-          <% end %>
-          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative">
+      <h3 class="mt-2 mb-1 text-dark">Saidas</h3>
+      <h3 class="text-danger"><%= number_to_currency(Expense.total_expense, unit: "R$ ", separator: ",", delimiter: ".") %> </h3>
+      <label class="mt-1 mb-1 text-dark">Saldo negativo: Todos os gastos.</label>
+      <br>
+      <div class="col">
+        <%= link_to "Detalhes", expenses_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_expense_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Saídas é todo tipo de gasto, seja fixo, ocasional ou mesmo aquela saidinha de fim de semana. Serve para ter um controle de tudo que está saindo da sua carteira."></i>
       </div>
     </div>
   </div>
-  <br>
-  <!-- HISTORICO-->
-  <h2>Historico</h2>
-  <table class="table table-default">
-    <thead>
+
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative">
+      <h3 class="mt-2 mb-1 text-dark">Futuros Objetivos</h3>
+      <h3> <label class="text1"><%= number_to_currency(FutureGoal.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
+      <br>
+      <div class="col">
+        <%= link_to "Detalhes", future_goals_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo<% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Futuros objetivos é tudo aquilo que você pretende comprar, seja um tênis até mesmo um apartamento, assim você consegue ter uma noção de quanto irá gastar nas suas próximas metas."></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative" >
+      <h3 class="mt-2 mb-1 text-dark">Emprestimos</h3>
+      <h3>N° <label class="text2"><%= Loan.count %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Empréstimos com juros e parcelamentos</label>
+      <br>
+        <%= link_to "Detalhes", loans_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_loan_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="ALTERA ISSO AQUI"></i>
+    </div>
+  </div>
+</div>
+<br>
+<!-- HISTORICO-->
+<h2>Historico</h2>
+<table class="table table-default">
+  <thead>
+    <tr>
+      <th scope="col">Tipo</th>
+      <th scope="col">Local</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Dia de pagamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
       <tr>
-        <th scope="col">Tipo</th>
-        <th scope="col">Local</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Valor</th>
-        <th scope="col">Dia de pagamento</th>
+        <td>Despesas</td>
+        <td><%= expense.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
+        <td><%= expense.name %></td>
+        <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @expenses.each do |expense| %>
-        <tr>
-          <td>Despesas</td>
-          <td><%= expense.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
-          <td><%= expense.name %></td>
-          <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-          <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
-        </tr>
-      <% end %>
-      <% @credits.each do |credit| %>
-        <tr>
-          <td>Entradas</td>
-          <td><%= credit.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
-          <td><%= credit.name %></td>
-          <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-          <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+    <% @credits.each do |credit| %>
+      <tr>
+        <td>Entradas</td>
+        <td><%= credit.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
+        <td><%= credit.name %></td>
+        <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
+        <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
