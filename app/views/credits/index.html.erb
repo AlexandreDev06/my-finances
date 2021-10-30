@@ -27,11 +27,7 @@
         <td><%= credit.name %></td>
         <td><%= credit.description %></td>
         <td class="text-success"><%= number_to_currency(credit.total, unit: "R$ ", separator: ",", delimiter: ".") %></td>
-        <% if credit.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
-        <% else %>
-          <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
-        <% end %>
+        <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
         <td class="icons">
           <%= link_to edit_credit_path(credit), class: "me-5" do %>
             <i class="bi bi-pencil" title="Edit"></i>
@@ -66,11 +62,7 @@
         <td><%= credit.name %></td>
         <td><%= credit.description %></td>
         <td class="text-success"><%= number_to_currency(credit.total, unit: "R$ ", separator: ",", delimiter: ".") %></td>
-        <% if credit.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
-        <% else %>
-          <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
-        <% end %>
+        <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
         <td class="icons">
           <%= link_to edit_credit_path(credit), class: "me-5" do %>
             <i class="bi bi-pencil" title="Edit"></i>

@@ -98,6 +98,7 @@
   </div>
   <br>
   <!-- HISTORICO-->
+  <h2>Historico</h2>
   <table class="table table-default">
     <thead>
       <tr>
@@ -112,27 +113,19 @@
       <% @expenses.each do |expense| %>
         <tr>
           <td>Despesas</td>
-          <td><%= expense.flux.capitalize %></td>
+          <td><%= expense.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
           <td><%= expense.name %></td>
           <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-          <% if expense.payment_at.nil? %>
-            <td><label>Data não informada</label></td>
-          <% else %>
-            <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
-          <% end %>
+          <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
         </tr>
       <% end %>
       <% @credits.each do |credit| %>
         <tr>
           <td>Entradas</td>
-          <td><%= credit.flux.capitalize %></td>
+          <td><%= credit.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
           <td><%= credit.name %></td>
           <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-          <% if credit.payment_at.nil? %>
-            <td><label>Data não informada</label></td>
-          <% else %>
-            <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
-          <% end %>
+          <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
         </tr>
       <% end %>
     </tbody>

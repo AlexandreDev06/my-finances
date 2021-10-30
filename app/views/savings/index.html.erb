@@ -49,11 +49,7 @@
         <td><%= expense.name %></td>
         <td><%= expense.description %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <% if expense.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
-        <% else %>
-          <td><%= expense.payment_at.strftime("%d/%m/%Y") %></td>
-        <% end %>
+        <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
       </tr>
     <% end %>
     <% Credit.all.saving.each do |credit| %>
@@ -62,11 +58,7 @@
         <td><%= credit.name %></td>
         <td><%= credit.description %></td>
         <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <% if credit.payment_at.nil? %>
-          <td><label>Data não informada</label></td>
-        <% else %>
-          <td><%= credit.payment_at.strftime("%d/%m/%Y") %></td>
-        <% end %>
+        <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
       </tr>
     <% end %>
   </tbody>
