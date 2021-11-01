@@ -1,6 +1,8 @@
 <%= form_with model: @credit do |f| %>
   <div class="form-group">
-    <%= f.hidden_field :user_id, value: @users.first.id %>
+    <% unless User.first.nil? %>
+      <%= f.hidden_field :user_id, value: @users.first.id %>
+    <% end %>
     <%= f.label :conta, class: "fs-5 text-light" %>
     <%= f.select :flux, [["Saldo Atual", :balance], ["Poupança", :saving]], {}, class: "form-select" %>
   </div>
