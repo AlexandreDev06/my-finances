@@ -1,5 +1,4 @@
 class Credit < ApplicationRecord
-  belongs_to :user
   enum flux: [:balance, :saving]
 
   def self.total_credit

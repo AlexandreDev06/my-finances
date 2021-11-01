@@ -1,6 +1,5 @@
 class Expense < ApplicationRecord
   enum flux: [:balance, :saving]
-  belongs_to :user
 
   def self.total_expense
     totaln = 0
