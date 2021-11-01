@@ -28,7 +28,7 @@
       <td><%= number_to_currency(loan.value, unit: "R$", separator: ",", delimiter: ".") %></td>
       <td><%= loan.installment %>x</td>
       <td><%= loan.percentage %>%</td>
-      <td><%= loan.date_payment.strftime("%d/%m/%Y") %></td>
+      <td><%= loan.date_payment&.strftime("%d/%m/%Y") %></td>
       <td class="icons">
         <%= link_to edit_loan_path(loan), class: "me-5" do %>
           <i class="bi bi-pencil" title="Edit"></i>
