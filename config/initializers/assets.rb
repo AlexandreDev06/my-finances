@@ -15,3 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 
 Rails.application.config.assets.precompile += %w( favicon.png
                                                   myfinanceslogo.png )
+Rails.application.config.assets.precompile += %w( application.css )
+Rails.application.config.assets.precompile += %w( application.js )
