@@ -1,6 +1,6 @@
 <div class="row mb-4">
   <div class="col-md-6">
-    <h3 class="text-center float-start">Futuros Objetivos</h3>
+    <h3 class="text-center float-start text-light">Futuros Objetivos</h3>
   </div>
   <div class="col-md-6">
     <%= link_to new_future_goal_path, class: "btn float-end" do %>
@@ -11,7 +11,7 @@
 
 <div class="row">
 
-  <h1 class="text-uppercase fs-3">Urgentes</h1>
+  <h1 class="text-uppercase fs-3 text-light">Urgentes</h1>
   <% @future_goals.urgent.each do |future_goal|%>
     <div class="card mx-2 mb-4 bg-danger shadow" style="width: 18rem;">
       <div class="card-body">
@@ -29,7 +29,7 @@
   <% end %>
   <hr>
 
-  <h1 class="text-uppercase fs-3">Necessários</h1>
+  <h1 class="text-uppercase fs-3 text-light">Necessários</h1>
   <% @future_goals.need.each do |future_goal|%>
     <div class="card mx-2 mb-4 bg-warning shadow" style="width: 18rem;">
       <div class="card-body">
@@ -47,7 +47,7 @@
   <% end %>
 
   <hr>
-  <h1 class="text-uppercase fs-3">Não Necessários</h1>
+  <h1 class="text-uppercase fs-3 text-light">Não Necessários</h1>
   <% @future_goals.no_need.each do |future_goal|%>
     <div class="card mx-2 mb-4 bg-secondary shadow" style="width: 18rem;">
       <div class="card-body">
