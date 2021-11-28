@@ -1,29 +1,29 @@
 <%= form_with model: @credit  do |f| %>
-  <div class="cadaster-values">
+  <div class="cadaster-values offset-4">
     <div class="form-group col-md-5">
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.label :conta, class: "fs-5 text-light" %>
-      <%= f.select :flux, [["Saldo Atual", :balance], ["Poupança", :saving]], {}, class: "form-select" %>
+      <%= f.select :flux, [["Saldo Atual", :balance], ["Poupança", :saving]], {}, class: "form-select"%>
     </div>
-    <hr>
+    <hr class="col-md-5">
     <div class="form-group col-md-5">
       <%= f.label :nome, class: "text-light fs-5" %>
-      <%= f.text_field :name, class: "form-control", required: "required", placeholder: "Digite seu nome..." %>
+      <%= f.text_field :name, class: "form-control", required: "required", placeholder: "De um nome do credito..." %>
     </div>
       <div class="form-group col-md-5">
       <%= f.label :total, class: "text-light fs-5" %>
-      <%= f.text_field :total, class: "form-control", required: "required", placeholder: "Digite o valor..." %>
+      <%= f.text_field :total, class: "form-control", required: "required", placeholder: "R$" %>
     </div>
       <div class="form-group col-md-5">
       <%= f.label "Descrição", class: "text-light fs-5" %>
-      <%= f.text_field :description, class: "form-control", required: "required", placeholder: "Descreva o valor..." %>
+      <%= f.text_field :description, class: "form-control", required: "required", placeholder: "De uma descrição sobre a entrada..." %>
     </div>
     <div class="form-group col-md-3">
       <%= f.label :data_de_pagamento, class: "text-light fs-5" %>
       <%= f.date_field :payment_at, class: "form-control", required: "required" %>
     </div>
     <div class="form-group">
-      <%= f.submit :salvar, class: "btn btn-success mt-3" %>
+      <%= f.submit 'Salvar', class: "btn btn-success mt-3 col-md-5" %>
     </div>
   </div>
 <% end %>

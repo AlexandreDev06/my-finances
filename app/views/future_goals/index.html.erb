@@ -13,13 +13,13 @@
 
   <h1 class="text-uppercase fs-3 text-light">Urgentes</h1>
   <% @future_goals.urgent.each do |future_goal|%>
-    <div class="card mx-2 mb-4 bg-danger shadow" style="width: 18rem;">
+    <div class="card mx-2 mb-4 bg-danger shadow text-light" style="width: 18rem;">
       <div class="card-body">
-        <p class="card-title fs-4"><%= future_goal.name %></p>
+        <p class="card-title fs-4 text-light"><%= future_goal.name.capitalize %></p>
         <hr>
-        <label class="fw-bold">Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
+        <label class="fw-bold">Link do produto: </label class="card-text"><a href="<%= future_goal.description %>" target="blank"><%= future_goal.description.truncate(40) %></a></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
-        <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
+        <label class="fw-bold">Data: </label> <label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
       <div class="card-body">
         <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
@@ -31,13 +31,13 @@
 
   <h1 class="text-uppercase fs-3 text-light">Necessários</h1>
   <% @future_goals.need.each do |future_goal|%>
-    <div class="card mx-2 mb-4 bg-warning shadow" style="width: 18rem;">
+    <div class="card mx-2 mb-4 bg-warning shadow text" style="width: 18rem;">
       <div class="card-body">
-        <p class="card-title fs-4"><%= future_goal.name %></p>
+        <p class="card-title fs-4 text-light"><%= future_goal.name.capitalize %></p>
         <hr>
-        <label class="fw-bold text-uppercase"> Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
+        <label class="fw-bold"> Link do produto: </label class="card-text"><a href="<%= future_goal.description %>" target="blank"><%= future_goal.description.truncate(40) %></a></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
-        <label class="fw-bold">Data:</label><label> <%= future_goal&.ending_date.strftime("%d/%m/%Y") %></label>
+        <label class="fw-bold">Data: </label> <label> <%= future_goal&.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
       <div class="card-body">
         <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>
@@ -51,11 +51,11 @@
   <% @future_goals.no_need.each do |future_goal|%>
     <div class="card mx-2 mb-4 bg-secondary shadow" style="width: 18rem;">
       <div class="card-body">
-        <p class="card-title fs-4"><%= future_goal.name %></p>
+        <p class="card-title fs-4 text-light"><%= future_goal.name.capitalize %></p>
         <hr>
-        <label class="fw-bold">Descrição: </label class="card-text"> <%= future_goal.description %></label><br>
+        <label class="fw-bold">Link do produto: </label class="card-text"><a href="<%= future_goal.description %>" target="blank"><%= future_goal.description.truncate(40) %></a></label><br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
-        <label class="fw-bold">Data:</label><label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
+        <label class="fw-bold">Data: </label> <label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
       <div class="card-body">
         <%= link_to 'Editar', edit_future_goal_path(future_goal), class: "text-decoration-none text-dark" %>

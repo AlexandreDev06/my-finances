@@ -19,7 +19,7 @@
     <div class="card-info position-relative">
       <h3 class="mt-2 mb-1 text-dark">Entradas</h3>
         <h3><label class="text-success"><%= number_to_currency(Credit.total_credit, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
-      <label class="mt-1 mb-1 text-dark">Valor total de todos as próximas metas.</label> <br>
+      <label class="mt-1 mb-1 text-dark">Valor total de todas as entradas.</label> <br>
         <%= link_to "Detalhes", credits_path, class: "mb-2 btn btn-dark" %>
         <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
           <i class="bi bi-plus-lg text-light"></i>Novo
