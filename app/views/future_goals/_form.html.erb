@@ -1,23 +1,25 @@
 <%= form_with model: @future_goal do |form| %>
-  <div class="form-group">
+  <div class="cadaster-values offset-4">
+    <div class="form-group col-md-5">
     <%= form.label :selecione_a_prioridade, class: "text-light" %>
     <%= form.select :priority, [["Não necessário", :no_need], ["Necessário", :need], ["Urgente", :urgent]], {}, class: "form-select" %>
   </div>
-  <div class="form-group">
-    <%= form.label :nome, class: "text-light" %>
-    <%= form.text_field :name, class: "form-control", required: "required" %>
+  <hr class="col-md-5">
+  <div class="form-group col-md-5">
+    <%= form.label :nome, class: "fs-5 text-light" %>
+    <%= form.text_field :name, class: "form-control", required: "required", placeholder: "Digite o nome do seu objetivo..." %>
   </div>
-  <div class="form-group">
-    <%= form.label :descricao, class: "text-light" %>
-    <%= form.text_field :description, class: "form-control", required: "required" %>
+  <div class="form-group col-md-5">
+    <%= form.label 'Link do produto', class: "fs-5 text-light" %>
+    <%= form.text_field :description, class: "form-control", required: "required", placeholder: "Cole o link do produto..." %>
   </div>
-  <div class="form-group">
-    <%= form.label :total, class: "text-light" %>
-    <%= form.number_field :total, class: "form-control", required: "required" %>
+  <div class="form-group col-md-5">
+    <%= form.label :total, class: "fs-5 text-light" %>
+    <%= form.text_field :total, class: "form-control", required: "required", placeholder: "R$" %>
   </div>
   <div class="form-group col-md-3 mb-3">
     <%= form.label :data_de_compra, class: "text-light" %>
-    <%= form.date_field :ending_date, class: "form-control" %>
+    <%= form.date_field :ending_date, class: "form-control", required: "required" %>
   </div>
-  <%= form.submit 'Salvar', disable_with: 'Salvando...', class: "btn btn-success" %>
-<% end %>
+  <%= form.submit 'Salvar', disable_with: 'Salvando...', class: "btn btn-success col-md-5" %>
+<% end %> 

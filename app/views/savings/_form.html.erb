@@ -1,5 +1,6 @@
 <%= form_with model: @saving do |form| %>
-  <div class="form-group">
+  <div class="cadaster-values">
+    <div class="form-group col-md-5">
     <%= form.hidden_field :balance, value: Credit.total_credit_savings %>
     <%= form.label 'Lucro da poupança em porcentagem', class: "text-light" %>
     <%= form.text_field :profit, class: "form-control", required: "required" %>
