@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
     t.string "description"
     t.float "total"
     t.date "payment_at"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "flux", default: 0
+    t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -27,9 +29,11 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
     t.string "description"
     t.float "total"
     t.date "payment_at"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "flux", default: 0
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "future_goals", force: :cascade do |t|
@@ -77,4 +81,6 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "credits", "users"
+  add_foreign_key "expenses", "users"
 end

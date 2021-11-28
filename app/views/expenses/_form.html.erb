@@ -1,6 +1,6 @@
 <%= form_with model: @expense do |f| %>
   <div class="form-group">
-
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :conta, class: "fs-5 text-light" %>
     <%= f.select :flux, [["Saldo Atual", :balance], ["Poupança", :saving]], {}, class: "form-select" %>
   </div>
