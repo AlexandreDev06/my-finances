@@ -5,6 +5,8 @@ class CreateSavings < ActiveRecord::Migration[6.1]
       t.float :balance
       t.float :income_tax
       t.float :iof
+      t.references :user, null: false, foreign_key: true
+
 
       t.timestamps
     end

@@ -6,6 +6,8 @@ class CreateFutureGoals < ActiveRecord::Migration[6.1]
       t.float :total
       t.integer :priority
       t.date :ending_date
+      t.references :user, null: false, foreign_key: true
+
 
       t.timestamps
     end
