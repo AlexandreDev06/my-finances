@@ -7,8 +7,6 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
-    @users = User.all
-    @user = User.first
   end
 
   def create
@@ -20,9 +18,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def edit
-    @users = User.all
-  end
+  def edit;end
 
   def update
     if @expense.update values
