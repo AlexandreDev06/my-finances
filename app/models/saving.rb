@@ -1,5 +1,6 @@
 class Saving < ApplicationRecord
   has_many :savings
+  belongs_to :user
 
   def profit_annually(saving)
     (Credit.total_credit_savings / 100) * saving.profit

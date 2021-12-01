@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
     t.float "total"
     t.integer "priority"
     t.date "ending_date"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_future_goals_on_user_id"
   end
 
   create_table "loans", force: :cascade do |t|
@@ -53,8 +55,10 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
     t.date "date_payment"
     t.integer "installment"
     t.integer "percentage"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_loans_on_user_id"
   end
 
   create_table "savings", force: :cascade do |t|
@@ -62,8 +66,10 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
     t.float "balance"
     t.float "income_tax"
     t.float "iof"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_savings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +89,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_233503) do
 
   add_foreign_key "credits", "users"
   add_foreign_key "expenses", "users"
+  add_foreign_key "future_goals", "users"
+  add_foreign_key "loans", "users"
+  add_foreign_key "savings", "users"
 end

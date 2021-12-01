@@ -2,12 +2,11 @@ class CreditsController < ApplicationController
   before_action :set_credit, only: [:edit, :update, :destroy]
 
   def index
-    @credits = Credit.order(payment_at: :desc)
+    @credits = current_user.credits.order(payment_at: :desc)
   end
 
   def new
     @credit = Credit.new
-    @users = User.all
   end
 
   def create
@@ -19,9 +18,7 @@ class CreditsController < ApplicationController
     end
   end
 
-  def edit
-    @users = User.all
-  end
+  def edit;end
 
   def update
     if @credit.update values
