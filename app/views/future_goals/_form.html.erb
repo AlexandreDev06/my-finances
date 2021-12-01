@@ -1,6 +1,7 @@
 <%= form_with model: @future_goal do |form| %>
   <div class="cadaster-values offset-4">
     <div class="form-group col-md-5">
+    <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.label :selecione_a_prioridade, class: "text-light" %>
     <%= form.select :priority, [["Não necessário", :no_need], ["Necessário", :need], ["Urgente", :urgent]], {}, class: "form-select" %>
   </div>
