@@ -42,9 +42,10 @@
         </li>
       </ul>
     </div>
-    <%= link_to destroy_user_session_path, method: :delete, class: "fs-5 me-5 text-decoration-none text-dark" do %>
+    <p class="fs-5 me-3 mt-3 text-decoration-none text-dark">Logado como <i class="bi bi-person-circle text-primary"> <%= current_user.email %></i></p>
+    <%= link_to destroy_user_session_path, method: :delete, class: "fs-5 me-3 text-decoration-none text-dark" do %>
       Logout <i class="bi bi-power text-dark"></i>
     <% end %>
-    <p class="float-end text-dark me-5 table-default rounded-pill p-2 mt-2"><%= Time.current.strftime("%d/%m/%y - %H:%M") %></p>
+    <p class="float-end text-dark me-4 table-default rounded-pill p-2 mt-3"><%= Time.current.strftime("%d/%m/%y - %H:%M") %></p>
   </div>
 </nav>
