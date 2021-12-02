@@ -7,22 +7,22 @@
           <%= render "users/shared/error_messages", resource: resource %>
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Digite seu Email..."  %>
           </div>
           <div class="field">
-            <%= f.label :password %>
+            <%= f.label "Senha" %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <em>(<%= @minimum_password_length %> caracters no minimo)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>
           <div class="field">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label "Confirme sua senha" %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
           </div>
           <div class="actions">
-            <%= f.submit "Sign up", class: "btn btn-success mt-3 me-3" %>
-            <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-primary mt-3 me-3" %>
+            <%= f.submit "Cadastrar", class: "btn btn-success mt-3 me-3 mb-3 col-md-12" %>
+            Já tem uma conta? <%= link_to "Entre", new_session_path(resource_name), class: "link" %>
           </div>
         <% end %>
     </article>
