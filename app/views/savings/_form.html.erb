@@ -1,20 +1,21 @@
 <%= form_with model: @saving do |form| %>
-  <div class="cadaster-values">
+  <div class="cadaster-values offset-4">
     <div class="form-group col-md-5">
-    <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.hidden_field :balance, value: current_user.credits.total_credit_savings(current_user) %>
-    <%= form.label 'Lucro da poupança em porcentagem', class: "text-light" %>
-    <%= form.text_field :profit, class: "form-control", required: "required" %>
-  </div>
-  <div class="form-group">
-    <%= form.label 'Imposto de Renda', class: "text-light" %>
-    <%= form.text_field :income_tax, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label 'IOF', class: "text-light" %>
-    <%= form.text_field :iof, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.submit :salvar, class: "btn btn-success mt-3" %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :balance, value: current_user.credits.total_credit_savings(current_user) %>
+      <%= form.label 'Lucro da poupança em porcentagem', class: "text-light fs-5 " %>
+      <%= form.number_field :profit, class: "form-control", required: "required", placeholder: "%0..."%>
+    </div>
+    <div class="form-group col-md-5">
+      <%= form.label 'Imposto de Renda', class: "text-light fs-5 " %>
+      <%= form.number_field :income_tax, class: "form-control", placeholder: "Digite a porcentagem de imposto de renda" %>
+    </div>
+    <div class="form-group col-md-5 mb-3">
+      <%= form.label 'IOF', class: "text-light fs-5 " %>
+      <%= form.number_field :iof, class: "form-control", placeholder: "Digite a porcentagem de IOF" %>
+    </div>
+    <div class="form-group col-md-5 mb-3">
+      <%= form.submit 'Salvar', class: "btn btn-success col-md-12" %>
+    </div>
   </div>
 <% end %>
