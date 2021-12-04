@@ -9,7 +9,7 @@
   <div class="col-md-4 text-center">
     <div class="card-info">
       <h2 class="mt-2 mb-1">Valor recebido Anualmente</h2>
-      <h3><label class="text-success"><%= number_to_currency(@saving.profit_annually(@saving), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <h3><label class="text-success"><%= number_to_currency(@saving.profit_annually(@saving, current_user), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1">apenas um texto de teste</label> <br>
       <%= link_to "Acessar", loans_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
     </div>
@@ -17,7 +17,7 @@
   <div class="col-md-4 text-center">
     <div class="card-info">
       <h2 class="mt-2 mb-1">Valor recebido Mensalmente</h2>
-      <h3><label class="text-success"><%= number_to_currency(@saving.profit_monthly(@saving), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <h3><label class="text-success"><%= number_to_currency(@saving.profit_monthly(@saving, current_user), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1">apenas um texto de teste</label> <br>
       <%= link_to "Acessar", savings_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
     </div>
@@ -25,7 +25,7 @@
   <div class="col-md-4 text-center">
     <div class="card-info">
       <h2 class="mt-2 mb-1">Valor recebido Diariamente</h2>
-      <h3><label class="text-success"><%= number_to_currency(@saving.profit_daily(@saving), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <h3><label class="text-success"><%= number_to_currency(@saving.profit_daily(@saving, current_user), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1">apenas um texto de teste</label> <br>
       <%= link_to "Acessar", savings_path, class: "mb-2 mt-1 btn btn-dark text-uppercase" %>
     </div>
