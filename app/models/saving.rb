@@ -3,7 +3,7 @@ class Saving < ApplicationRecord
   belongs_to :user
 
   def profit_annually(saving, current_user)
-    (current_user.credits.total_credit_savings / 100) * saving.profit
+    (current_user.credits.total_credit_savings(current_user) / 100) * saving.profit
   end
 
   def profit_monthly(saving, current_user)
