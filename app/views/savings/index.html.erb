@@ -41,7 +41,7 @@
       <tr>
         <td>Despesas</td>
         <td><%= expense.name %></td>
-        <td><%= expense.description %></td>
+        <td><%= expense.description.truncate(40) %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
         <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
       </tr>
@@ -50,7 +50,7 @@
       <tr>
         <td>Entradas</td>
         <td><%= credit.name %></td>
-        <td><%= credit.description %></td>
+        <td><%= credit.description.truncate(40) %></td>
         <td class="text-success"><%= number_to_currency(credit.total, unit: "R$", separator: ",", delimiter: ".") %></td>
         <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
       </tr>
