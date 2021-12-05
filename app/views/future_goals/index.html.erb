@@ -17,7 +17,11 @@
       <div class="card-body">
         <p class="card-title fs-4 text-dark"><%= future_goal.name.capitalize %></p>
         <hr class="text-dark">
-        <label class="fw-bold">Link do produto: </label class="card-text"><a href="<%= future_goal.description %>" target="blank"><%= future_goal.description.truncate(40) %></a></label><br>
+        <label class="fw-bold">Link do produto: </label class="card-text">
+        <a href="<%= future_goal&.description %>" target="blank">
+          <%= future_goal&.description.truncate(40) %>
+        </a>
+        <br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
         <label class="fw-bold">Data: </label> <label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
@@ -35,7 +39,11 @@
       <div class="card-body">
         <p class="card-title fs-4 text-dark"><%= future_goal.name.capitalize %></p>
         <hr class="text-dark">
-        <label class="fw-bold"> Link do produto: </label class="card-text"><a href="<%= future_goal.description %>" target="blank"><%= future_goal.description.truncate(40) %></a></label><br>
+        <label class="fw-bold"> Link do produto: </label class="card-text">
+        <a href="<%= future_goal&.description %>" target="blank">
+          <%= future_goal&.description.truncate(40) %>
+        </a>
+        <br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
         <label class="fw-bold">Data: </label> <label> <%= future_goal&.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
@@ -53,7 +61,11 @@
       <div class="card-body">
         <p class="card-title fs-4 text-dark"><%= future_goal.name.capitalize %></p>
         <hr class="text-dark">
-        <label class="fw-bold">Link do produto: </label class="card-text"><a href="<%= future_goal.description %>" target="blank"><%= future_goal.description.truncate(40) %></a></label><br>
+        <label class="fw-bold"> Link do produto: </label class="card-text">
+        <a href="<%= future_goal&.description %>" target="blank">
+          <%= future_goal&.description.truncate(40) %>
+        </a>
+        <br>
         <label class="card-text"> <%= number_to_currency(future_goal.total, unit: "R$", separator: ",", delimiter: ".") %></label><br>
         <label class="fw-bold">Data: </label> <label> <%= future_goal.ending_date.strftime("%d/%m/%Y") %></label>
       </div>
