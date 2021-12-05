@@ -37,7 +37,7 @@
     </tr>
   </thead>
   <tbody>
-    <% Expense.all.saving.each do |expense| %>
+    <% current_user.expenses.saving.each do |expense| %>
       <tr>
         <td>Despesas</td>
         <td><%= expense.name %></td>
@@ -46,7 +46,7 @@
         <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
       </tr>
     <% end %>
-    <% Credit.all.saving.each do |credit| %>
+    <% current_user.credits.saving.each do |credit| %>
       <tr>
         <td>Entradas</td>
         <td><%= credit.name %></td>
