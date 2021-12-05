@@ -19,6 +19,7 @@ class LoansController < ApplicationController
           payment_at: @loan.date_payment,
           user_id: User.first.id,
           flux: 0).save!
+      end
         @loan.installment.times do |time|
           Credit.new(name: "Juros",
                     description: "Juros de emprestimo do #{@loan.name}, Parcela N° #{time + 1}",
@@ -28,7 +29,6 @@ class LoansController < ApplicationController
                     flux: 0).save!
 
         end
-      end
       redirect_to loans_path
     else
       render :new
