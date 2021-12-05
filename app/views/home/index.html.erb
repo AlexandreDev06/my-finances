@@ -126,7 +126,7 @@
         <td><%= expense.flux == 'balance' ? 'Saldo atual' : 'Poupança' %></td>
         <td><%= expense.name %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
-        <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
+        <td><%= expense.payment_at&.strftime("%d/%m/%Y") %> <label class="text-danger"><%= expense.payment_at > Date.current ? "* Saldo Futuro *" : '' %></label></td></td> 
       </tr>
     <% end %>
     <% @credits.each do |credit| %>
