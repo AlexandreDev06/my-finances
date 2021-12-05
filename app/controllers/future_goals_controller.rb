@@ -2,7 +2,7 @@ class FutureGoalsController < ApplicationController
   before_action :set_future_goal, only: [:edit, :update, :destroy]
 
   def index
-    @future_goals = FutureGoal.order :priority
+    @future_goals = current_user.future_goals.order :priority
   end
 
   def new

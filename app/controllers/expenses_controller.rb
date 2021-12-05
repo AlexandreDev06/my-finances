@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[edit update destroy]
 
   def index
-    @expenses = Expense.order(payment_at: :desc)
+    @expenses = current_user.future_goals.order(payment_at: :desc)
   end
 
   def new
