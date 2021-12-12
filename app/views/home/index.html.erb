@@ -31,11 +31,11 @@
   <div class="col-md-4 text-center">  
     <div class="card-info position-relative">
       <h3 class="mt-2 mb-1 text-dark">Poupança</h3>
-      <% if Saving.first == nil %>
+      <% if current_user.savings.empty? %>
         <label class="mt-1 mb-4 text-dark">Abra uma conta poupança e simule seus rendimentos diarios, mensais e anuais.</label>
         <br>
         <div class="col">          
-          <%= link_to "Abrir conta poupança", savings_path, class: "mb-2 btn btn-dark" %>
+          <%= link_to "Abrir conta poupança", new_saving_path, class: "mb-2 btn btn-dark" %>
           <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Todo o dinheiro na Poupança ou mesmo debaixo do seu colchão. Os valores da poupança não são enviados para o saldo atual já que são valores que você normalmente não pretende mexer."></i>
         </div>
       <% else %>
@@ -45,15 +45,15 @@
           <h3><label class="text-success"><%= number_to_currency(current_user.credits.total_credit_savings(current_user), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
         <% end %>
       
-      <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
-      <br>
-      <div class="col">          
-        <%= link_to "Detalhes", savings_path, class: "mb-2 btn btn-dark" %>
-        <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
-          <i class="bi bi-plus-lg text-light"></i>Novo
-        <% end %>
-        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Todo o dinheiro na Poupança ou mesmo debaixo do seu colchão. Os valores da poupança não são enviados para o saldo atual já que são valores que você normalmente não pretende mexer."></i>
-      </div>
+        <label class="mt-1 mb-1 text-dark">Todo o dinheiro guardado.</label>
+        <br>
+        <div class="col">          
+          <%= link_to "Detalhes", savings_path, class: "mb-2 btn btn-dark" %>
+          <%= link_to new_credit_path, class: "mb-2 btn btn-dark" do %>
+            <i class="bi bi-plus-lg text-light"></i>Novo
+          <% end %>
+          <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Todo o dinheiro na Poupança ou mesmo debaixo do seu colchão. Os valores da poupança não são enviados para o saldo atual já que são valores que você normalmente não pretende mexer."></i>
+        </div>
       <% end %>
     </div>
   </div>
