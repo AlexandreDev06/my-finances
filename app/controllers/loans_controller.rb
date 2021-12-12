@@ -17,7 +17,7 @@ class LoansController < ApplicationController
           description: "Emprestimo do #{@loan.name}",
           total: @loan.value,
           payment_at: @loan.date_payment,
-          user_id: User.first.id,
+          user_id: current_user.id,
           flux: 0).save!
       end
         @loan.installment.times do |time|
@@ -25,7 +25,7 @@ class LoansController < ApplicationController
                     description: "Juros de emprestimo do #{@loan.name}, Parcela N° #{time + 1}",
                     total: @loan.per_loan(@loan.percentage, @loan.value),
                     payment_at: @loan.date_payment.next_month(time),
-                    user_id: User.first.id,
+                    user_id: current_user.id,
                     flux: 0).save!
 
         end
