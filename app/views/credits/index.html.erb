@@ -60,7 +60,7 @@
       <tr>
         <td><%= credit.flux.capitalize %></td>
         <td><%= credit.name %></td>
-        <td><%= credit.description %></td>
+        <td><%= credit&.description %></td>
         <td class="text-success"><%= number_to_currency(credit.total, unit: "R$ ", separator: ",", delimiter: ".") %></td>
         <td><%= credit.payment_at&.strftime("%d/%m/%Y") %></td>
         <td class="icons">

@@ -24,7 +24,7 @@
       <tr>
         <td><%= expense.flux.capitalize %></td>        
         <td><%= expense.name %></td>
-        <td><%= expense.description %></td>
+        <td><%= expense&.description %></td>
         <td class="text-danger"><%= number_to_currency(expense.total, unit: "R$", separator: ",", delimiter: ".") %></td>
         <td><%= expense.payment_at&.strftime("%d/%m/%Y") %></td>
         <td class="icons">
