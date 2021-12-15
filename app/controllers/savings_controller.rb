@@ -5,7 +5,7 @@ class SavingsController < ApplicationController
     if Saving.first.nil?
       redirect_to new_saving_path
     end
-    @saving = Saving.first
+    @saving = current_user.savings.first
   end
 
   def new
