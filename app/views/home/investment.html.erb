@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative" >
+      <h3 class="mt-2 mb-1 text-dark">Emprestimos</h3>
+      <h3>N° <label class="text2"><%= current_user.loans.count %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Empréstimos com juros e parcelamentos</label>
+      <br>
+        <%= link_to "Detalhes", loans_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_loan_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Simulação de empréstimos com juros e parcelamentos"></i>
+    </div> 
+  </div>
+
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative" >
+      <h3 class="mt-2 mb-1 text-dark">Investimentos personalizados</h3>
+      <h3>N° <label class="text2"><%= current_user.loans.count %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Empréstimos com juros e parcelamentos</label>
+      <br>
+        <%= link_to "Detalhes", loans_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_loan_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Simulação de empréstimos com juros e parcelamentos"></i>
+    </div> 
+  </div>
+
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative" >
+      <h3 class="mt-2 mb-1 text-dark">Ações</h3>
+      <h3>N° <label class="text2"><%= current_user.loans.count %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Empréstimos com juros e parcelamentos</label>
+      <br>
+        <%= link_to "Detalhes", loans_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_loan_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Simulação de empréstimos com juros e parcelamentos"></i>
+    </div> 
+  </div>
+
+  <!---
+  <div class="col-md-4 text-center">
+    <div class="card-info position-relative" >
+
+      <h3 class="mt-2 mb-1 text-dark">Emprestimos</h3>
+      <h3>N° <label class="text2"><%= current_user.loans.count %></label></h3>
+      <label class="mt-1 mb-1 text-dark">Empréstimos com juros e parcelamentos</label>
+      <br>
+        <%= link_to "Detalhes", loans_path, class: "mb-2 btn btn-dark" %>
+        <%= link_to new_loan_path, class: "mb-2 btn btn-dark" do %>
+          <i class="bi bi-plus-lg text-light"></i>Novo
+        <% end %>
+        <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Simulação de empréstimos com juros e parcelamentos"></i>
+    </div> 
+  </div> -->
+</div>

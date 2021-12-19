@@ -80,7 +80,7 @@
   <div class="col-md-4 text-center">
     <div class="card-info position-relative">
       <h3 class="mt-2 mb-1 text-dark">Futuros Objetivos</h3>
-      <h3> <label class="text1"><%= number_to_currency(current_user.future_goals.total_goals, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
+      <h3> <label class="text1"><%= number_to_currency(current_user.future_goals.total_goals(current_user), unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <label class="mt-1 mb-1 text-dark">Próximas Metas/Compras</label>
       <br>
       <div class="col">
@@ -94,14 +94,9 @@
 
   <div class="col-md-4 text-center">
     <div class="card-info position-relative" >
-      <h3 class="mt-2 mb-1 text-dark">Emprestimos</h3>
-      <h3>N° <label class="text2"><%= current_user.loans.count %></label></h3>
-      <label class="mt-1 mb-1 text-dark">Empréstimos com juros e parcelamentos</label>
-      <br>
-        <%= link_to "Detalhes", loans_path, class: "mb-2 btn btn-dark" %>
-        <%= link_to new_loan_path, class: "mb-2 btn btn-dark" do %>
-          <i class="bi bi-plus-lg text-light"></i>Novo
-        <% end %>
+      <h3 class="mt-2 mb-1 text-dark">Investimentos</h3>
+        <br><br><br>
+        <%= link_to "Detalhes", investment_path, class: "mb-2 btn btn-dark" %>
         <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Simulação de empréstimos com juros e parcelamentos"></i>
     </div>
   </div>
@@ -116,7 +111,7 @@
       <th scope="col">Local</th>
       <th scope="col">Nome</th>
       <th scope="col">Valor</th>
-      <th scope="col">Dia de pagamento</th>
+      <th scope="col">Data</th>
     </tr>
   </thead>
   <tbody>
