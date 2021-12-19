@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
+  get "investment", to: "home#investment"
 
   devise_for :users
   resources :expenses, except: :show
