@@ -2,7 +2,7 @@ class SavingsController < ApplicationController
   before_action :set_saving, only: [:edit, :update]
 
   def index
-    if Saving.first.nil?
+    if current_user.savings.first.nil?
       redirect_to new_saving_path
     end
     @saving = current_user.savings.first
