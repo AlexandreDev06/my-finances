@@ -8,4 +8,10 @@ class HomeController < ApplicationController
   def investment
     @loans = current_user.loans
   end
+
+  def reset_all
+    current_user.expenses.each { |expense| expense.destroy }
+    current_user.credits.each { |credit| credit.destroy }
+    redirect_to root_path
+  end
 end
