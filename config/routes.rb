@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :future_goals, except: :show
   resources :loans, except: :show
   resources :savings, except: [:show, :destroy]
+
+  get 'reset_value', to: 'home#reset_all', as: 'reset_all_values'
 end

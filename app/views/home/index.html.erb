@@ -8,9 +8,8 @@
         <h3><label class="text-success"><%= number_to_currency(@total_balance, unit: "R$ ", separator: ",", delimiter: ".") %></label></h3>
       <% end %>
       <label class="mt-1 mb-1 text-dark">Resultado do Entradas e Saídas</label>      
-      <br>
       <i class="bi bi-info-circle-fill position-absolute me-2 top-0 end-0 translate-right" title="Saldo Atual é todo valor disponível na sua carteira, não são contabilizados os valores da poupança."></i>
-      <br>
+      <%= link_to 'Resetar todos os valores', reset_all_values_path, class: 'mb-2 btn btn-dark' %>
       <br>
     </div>
   </div>
