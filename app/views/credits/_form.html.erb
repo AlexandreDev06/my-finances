@@ -12,7 +12,7 @@
     </div>
       <div class="form-group col-md-5">
       <%= f.label :total, class: "text-light fs-5" %>
-      <%= f.text_field :total, class: "form-control", required: "required", placeholder: "R$" %>
+      <%= f.text_field :total, class: "form-control", required: "required", placeholder: "R$", id: "currency", autofocus: true %>
     </div>
       <div class="form-group col-md-5">
       <%= f.label "Descrição", class: "text-light fs-5" %>
@@ -27,3 +27,6 @@
     </div>
   </div>
 <% end %>
+<script>
+  mask()
+</script>

@@ -39,6 +39,8 @@ class ExpensesController < ApplicationController
   private
 
   def values
+    params[:credit][:total].gsub!('.', '')
+    params[:credit][:total].gsub!(',', '.')
     params.require(:expense).permit!
   end
 
