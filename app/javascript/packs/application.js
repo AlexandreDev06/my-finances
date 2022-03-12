@@ -8,9 +8,17 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+require("jquery")
+require("packs/maskMoney")
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 require("@popperjs/core")
 require("bootstrap")
+
+window.mask = function() {
+  $('#currency').maskMoney({thousands: '.', decimal: ',', symbol:'R$ '});
+}
+
