@@ -39,8 +39,8 @@ class FutureGoalsController < ApplicationController
   private
 
   def values
-    params[:credit][:total].gsub!('.', '')
-    params[:credit][:total].gsub!(',', '.')
+    params[:future_goal][:total].gsub!('.', '')
+    params[:future_goal][:total].gsub!(',', '.')
     params.require(:future_goal).permit!
   end
 
